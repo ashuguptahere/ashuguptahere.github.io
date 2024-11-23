@@ -9,7 +9,7 @@
 
 **Software Engineer @ MAQ Software (Dec 2022 - Dec 2023)**
 - Spearheaded and successfully led initiatives in Retrieval Augmented Generation, contributing to advancement of content generation techniques
-- Applied state-of-the-art LLMs like OpenAI’s GPT3.5 \& GPT4  and Llama 2 for RAG applications
+- Applied state-of-the-art LLMs like OpenAI’s GPT3.5 & GPT4  and Llama 2 for RAG applications
 - Optimized client’s legacy system performance using Python, specifically leveraging NumPy and Pandas for calculations, achieving a substantial reduction in execution time from 7 minutes to 10 seconds, making application 42x faster
 - Deployed end-to-end production-grade solutions on Azure, utilizing services like Function App, Web App, Cognitive Service (Search Index/Indexer), Blob Storage, SQL Databases and Speech Service
 - Implemented High-Impact and robust Recommendation System handling a massive data of 1 million users
@@ -36,6 +36,16 @@
 - **Bachelor of Technology, CSE** _from_ Shaheed Bhagat Singh State Technical Campus (Aug 2016 - Jul 2020)
 
 ## 📂 PROJECTS:
+- [AI Cover Letter Generator](https://github.com/ashuguptahere/cover-letter-gen)
+    - Simple and intuitive web interface made using Gradio with real-time Cover Letter Generation
+    - Usage of Llama 3.2 model from Ollama
+    - Usage of `uv` package manager for package dependency
+- [POLAR Dataset Conversion and YOLO11 Training](https://github.com/ashuguptahere/POLAR-yolo-conversion-and-train)
+    - Trained YOLO11 model on POLAR dataset for human activity detection
+    - Usage of `uv` package manager for package dependency
+- [YOLO Gradio App](https://github.com/ashuguptahere/yolo-gradio-app)
+    - Simple and intuitive web interface made using Gradio for training any Ultralytics model from WebUI
+    - Usage of `uv` package manager for package dependency
 - [Real-Time Sign Language Detection](https://github.com/ashuguptahere/sign-language-detection)
     - Achieved a validation accuracy of 99.348% and a minimal loss of 0.03621 on ResNet102
     - Dataset Used: [ASL Alphabet](https://www.kaggle.com/grassknoted/asl-alphabet)
