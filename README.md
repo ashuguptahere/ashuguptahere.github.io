@@ -1,6 +1,6 @@
 # Data Scientist/AI Engineer
 
-## EXPERIENCES:
+##  💼 EXPERIENCES:
 **Data Scientist & AI Engineer @ Quantum Leap (Dec 2023 - Present)**
 - Leading and delivering impactful initiatives in Computer Vision Projects. Developing a system for Human Activity Recognition/Behaviour Analysis contributing to improved safety protocols and preventive measures for Retail Loss Prevention
 - Engineered backend solutions to streamline and analyze incoming streams, enabling real-time irregular behaviours detection
@@ -18,7 +18,7 @@
 - Led and executed numerous Data Analysis and Data Science Projects
 - Proficient in Python development, showcasing skills in backend development for robust and scalable applications
 
-## INTERNSHIPS:
+## 🧑‍💻 INTERNSHIPS:
 
 **Data Science Intern @ VerSe Innovation (Jul 2021 - Aug 2022)**
 - Engaged in challenging Computer Vision endeavors, including tasks encompassing Image and Video Classification
@@ -26,16 +26,16 @@
 **AI Trainer @ CETPA InfoTech Pvt. Ltd. (Jan 2020 - Feb 2020)**
 - Educated and taught college students in their 3rd and 4th years on a wide array of AI topics
 
-## SKILLS:
+## 🛠️ SKILLS:
 - **Technical Skills**: Proficient in ML, DL, AI, GenAI, Data Science, Data Analysis, Python, Git/GitHub, MySQL, T-SQL Databases, Computer Vision, Video Analytics, NLP, RAG, EDA, C/C++, DSA, Linux, PowerBI, MLOps, Azure and AWS
 - **Libraries Known**: PyTorch, Tensorflow, Keras, OpenCV, Scikit-Learn, NumPy, Pandas, NLTK, OpenAI, Streamlit, Flask, LangChain
 - **Exposure to**: C#, Java, HTML, CSS, JavaScript (ECMAScript), Mojo, Rust
 - **Languages Known**: English, Hindi, Portuguese (beginner)
 
-## EDUCATIONS:
+## 🎓 EDUCATIONS:
 - **Bachelor of Technology, CSE** _from_ Shaheed Bhagat Singh State Technical Campus (Aug 2016 - Jul 2020)
 
-## PROJECTS:
+## 📂 PROJECTS:
 - [Real-Time Sign Language Detection](https://github.com/ashuguptahere/sign-language-detection)
     - Achieved a validation accuracy of 99.348% and a minimal loss of 0.03621 on ResNet102
     - Dataset Used: [ASL Alphabet](https://www.kaggle.com/grassknoted/asl-alphabet)
@@ -44,7 +44,7 @@
     - Demonstrated a robust validation accuracy ranging from 90% to 95% on ResNet102
     - Dataset Used: [UCF101](https://www.kaggle.com/ashuguptahere/video-classification-ucf101), [UCF11](https://www.kaggle.com/ashuguptahere/video-classification-ucf11)
 
-## CERTIFICATIONS:
+## 📜 CERTIFICATIONS:
 - [Coding Blocks - Algo++](https://drive.google.com/file/d/1hiyOK3MlFXi0583gJTVbafHLXmegdTvS/view?usp=sharing)
 - [Coursera - Deep Learning](https://www.coursera.org/account/accomplishments/specialization/certificate/UCE9XTXVFWEW)
 - [CETPA - Machine Learning](https://drive.google.com/file/d/1mK1c-I2CtkLyqJjuNWmpbe8s171mp99e/view?usp=sharing)
@@ -52,6 +52,9 @@
 - [Microsoft - Fundamental of ML](https://drive.google.com/file/d/1SSPmCUa9mdKV8BjQj_RvWyFiPn-vGKpz/view?usp=sharing)
 - [ISOEH - Machine Learning](https://drive.google.com/file/d/1Pk-nYnK60L8UbcFB3BfSbxoZ3xy0Froh/view)
 
-## ACHIEVEMENTS
+## 🏆 ACHIEVEMENTS
 - [Gate 2021](https://drive.google.com/file/d/1ARz_BLLcELOdsD-tSp_IxuJ8UMXhP7_6/view?usp=share_link) cleared with Marks: 25.21 & Gate Score: 339
 - Practiced over [190+ DSA questions](https://codolio.com/profile/ashuguptahere) on various platforms
+
+## 📬 SOCIALS:
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ashuguptahere) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/hey_its_ashu)
