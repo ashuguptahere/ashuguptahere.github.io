@@ -11,14 +11,14 @@ ___
 ---
 
 ##  💼 EXPERIENCES:
-**Data Scientist & AI Engineer** | _(Dec 2023 - Present)_
+**Data Scientist & AI Engineer** | _(Dec 2023 - Present)_<br>
 **Quantum Leap** | _Setúbal, Portugal (Remote)_
 - Leading and delivering impactful initiatives in Computer Vision Projects. Developing a system for Human Activity Recognition/Behaviour Analysis contributing to improved safety protocols and preventive measures for Retail Loss Prevention
 - Engineered backend solutions to streamline and analyze incoming streams, enabling real-time irregular behaviours detection
 - Led the development of a fully localized Llama-3 70B LLM model tailored for a law firm client
 - Built a sophisticated chat interface allowing the client to interact with their data, facilitating quick identification of relevant documents and specific information within vast repositories of PDFs and text files
 
-**Software Engineer** | _(Dec 2022 - Dec 2023)_
+**Software Engineer** | _(Dec 2022 - Dec 2023)_<br>
 **MAQ Software** | _NOIDA, India_
 - Spearheaded and successfully led initiatives in Retrieval Augmented Generation, contributing to advancement of content generation techniques
 - Applied state-of-the-art LLMs like OpenAI’s GPT3.5 & GPT4  and Llama 2 for RAG applications
@@ -26,7 +26,7 @@ ___
 - Deployed end-to-end production-grade solutions on Azure, utilizing services like Function App, Web App, Cognitive Service (Search Index/Indexer), Blob Storage, SQL Databases and Speech Service
 - Implemented High-Impact and robust Recommendation System handling a massive data of 1 million users
 
-**System Engineer** | _(Aug 2021 - Dec 2022)_
+**System Engineer** | _(Aug 2021 - Dec 2022)_<br>
 **Tata Consultancy Services (TCS)** | _NOIDA, India_
 - Led and executed numerous Data Analysis and Data Science Projects
 - Proficient in Python development, showcasing skills in backend development for robust and scalable applications
@@ -35,11 +35,11 @@ ___
 
 ## 🧑‍💻 INTERNSHIPS:
 
-**Data Science Intern** | _(Jul 2021 - Aug 2022)_
+**Data Science Intern** | _(Jul 2021 - Aug 2022)_<br>
 **VerSe Innovation** | _Bengaluru, India_
 - Engaged in challenging Computer Vision endeavors, including tasks encompassing Image and Video Classification
 
-**AI Trainer** | _(Jan 2020 - Feb 2020)_
+**AI Trainer** | _(Jan 2020 - Feb 2020)_<br>
 **CETPA InfoTech Pvt. Ltd.** | _NOIDA, India_
 - Educated and taught college students in their 3rd and 4th years on a wide array of AI topics
 
