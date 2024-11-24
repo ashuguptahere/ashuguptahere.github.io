@@ -1,11 +1,15 @@
 # Data Scientist & AI Engineer
 
+___
+
 ## 🛠️ SKILLS:
 - **Technical Skills**: Proficient in ML, DL, AI, GenAI, Data Science, Data Analysis, Python, Git/GitHub, MySQL, T-SQL Databases, Computer Vision, Video Analytics, NLP, RAG, EDA, C/C++, DSA, Linux, PowerBI, MLOps, Azure and AWS
 - **Libraries Known**: PyTorch, Tensorflow, Keras, OpenCV, Scikit-Learn, NumPy, Pandas, NLTK, OpenAI, Streamlit, Flask, LangChain
 - **Exposure to**: C#, Java, HTML, CSS, JavaScript (ECMAScript), Mojo, Rust
 - **Languages Known**: English, Hindi, Portuguese (beginner)
+
 ---
+
 ##  💼 EXPERIENCES:
 **Data Scientist & AI Engineer** | _(Dec 2023 - Present)_
 **Quantum Leap** | _Setúbal, Portugal (Remote)_
@@ -26,7 +30,9 @@
 **Tata Consultancy Services (TCS)** | _NOIDA, India_
 - Led and executed numerous Data Analysis and Data Science Projects
 - Proficient in Python development, showcasing skills in backend development for robust and scalable applications
+
 ---
+
 ## 🧑‍💻 INTERNSHIPS:
 
 **Data Science Intern** | _(Jul 2021 - Aug 2022)_
@@ -36,10 +42,14 @@
 **AI Trainer** | _(Jan 2020 - Feb 2020)_
 **CETPA InfoTech Pvt. Ltd.** | _NOIDA, India_
 - Educated and taught college students in their 3rd and 4th years on a wide array of AI topics
+
 ---
+
 ## 🎓 EDUCATIONS:
 - **Bachelor of Technology, CSE** _from_ Shaheed Bhagat Singh State Technical Campus (Aug 2016 - Jul 2020)
+
 ---
+
 ## 📂 PROJECTS:
 **[AI Cover Letter Generator](https://github.com/ashuguptahere/cover-letter-gen)**
 - Simple and intuitive web interface made using Gradio with real-time Cover Letter Generation
