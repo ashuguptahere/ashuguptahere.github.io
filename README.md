@@ -12,7 +12,7 @@ ___
 
 ##  💼 EXPERIENCES:
 **Data Scientist & AI Engineer** | _(Dec 2023 - Present)_<br>
-**Quantum Leap** | _Setúbal, Portugal (Remote)_
+**Quantum Leap** | _Setúbal, Portugal_
 - Leading and delivering impactful initiatives in Computer Vision Projects. Developing a system for Human Activity Recognition/Behaviour Analysis contributing to improved safety protocols and preventive measures for Retail Loss Prevention
 - Engineered backend solutions to streamline and analyze incoming streams, enabling real-time irregular behaviours detection
 - Led the development of a fully localized Llama-3 70B LLM model tailored for a law firm client
