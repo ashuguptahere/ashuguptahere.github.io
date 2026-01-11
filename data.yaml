@@ -180,7 +180,7 @@ projects:
 
   - name: 'Human Activity Recognition'
     url: 'https://github.com/ashuguptahere/video-classification-ucf101'
-    tail_latex: '{: Conducted Video Classification on two distinct massive datasets, UCF11 and UCF101. Demonstrated robust validation accuracy ranging from 90\% to 95\% on ResNet102 | Datasets: {\href{https://www.kaggle.com/ashuguptahere/video-classification-ucf11}{UCF11}}, {\href{https://www.kaggle.com/ashuguptahere/video-classification-ucf101}{UCF101}}}'
+    tail_latex: '{: Conducted Video Classification on two distinct massive datasets, UCF11 and UCF101. Demonstrated robust validation accuracy ranging from 90\% to 95\% on ResNet102. Datasets: {\href{https://www.kaggle.com/ashuguptahere/video-classification-ucf11}{UCF11}}, {\href{https://www.kaggle.com/ashuguptahere/video-classification-ucf101}{UCF101}}}'
 
   - name: 'AI Cover Letter Generator'
     url: 'https://github.com/ashuguptahere/cover-letter-gen'

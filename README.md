@@ -57,7 +57,7 @@
 ## 📂 PROJECTS
 
 - **[Real-Time Sign Language Detection](https://github.com/ashuguptahere/sign-language-detection)** : Achieved a validation accuracy of 99.348% and a minimal loss of 0.03621 on ResNet102. Dataset: [ASL Alphabet](https://www.kaggle.com/grassknoted/asl-alphabet)
-- **[Human Activity Recognition](https://github.com/ashuguptahere/video-classification-ucf101)** : Conducted Video Classification on two distinct massive datasets, UCF11 and UCF101. Demonstrated robust validation accuracy ranging from 90% to 95% on ResNet102 | Datasets: [UCF11](https://www.kaggle.com/ashuguptahere/video-classification-ucf11), [UCF101](https://www.kaggle.com/ashuguptahere/video-classification-ucf101)
+- **[Human Activity Recognition](https://github.com/ashuguptahere/video-classification-ucf101)** : Conducted Video Classification on two distinct massive datasets, UCF11 and UCF101. Demonstrated robust validation accuracy ranging from 90% to 95% on ResNet102. Datasets: [UCF11](https://www.kaggle.com/ashuguptahere/video-classification-ucf11), [UCF101](https://www.kaggle.com/ashuguptahere/video-classification-ucf101)
 - **[AI Cover Letter Generator](https://github.com/ashuguptahere/cover-letter-gen)** : Simple and intuitive web interface made using Gradio with real-time Cover Letter Generation. Usage of Llama 3.2 model from Ollama and usage of uv package manager for package dependency.
 
 ## 🏆 Achievements
