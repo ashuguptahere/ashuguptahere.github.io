@@ -100,6 +100,9 @@ def latexish_to_md(s: str) -> str:
     # Drop braces used only for grouping (keeps content synced)
     s = s.replace("{", "").replace("}", "")
 
+    # Escape pipe symbol to prevent markdown table issues
+    s = s.replace("|", "\\|")
+
     # Normalize whitespace
     s = re.sub(r"[ \t]+", " ", s).strip()
 
