@@ -131,12 +131,13 @@ def main() -> int:
 
     # Header (keeps same variables as resume)
     name = str(basics.get("name", "")).strip() or "Resume"
+    profile = "Data Scientist & AI Engineer"
     # phone = str(basics.get("phone", "")).strip()
     email = str(basics.get("email", "")).strip()
     links = basics.get("links", []) or []
 
     md: list[str] = []
-    md.append(f"# {name}")
+    md.append(f"# {profile}")
     md.append("")
     header_bits = []
     # if phone:
@@ -219,7 +220,7 @@ def main() -> int:
     md.append("")
 
     # 7) extra
-    section(md, "Extra-Curricular Activities")
+    section(md, "🎨 Extra-Curricular Activities")
     for x in (data.get("extra", {}) or {}).get("items_latex", []) or []:
         md.append(f"- {latexish_to_md(x)}")
     md.append("")
@@ -242,7 +243,6 @@ def main() -> int:
     md.append("---")
     md.append("")
 
-    name = str(basics.get("name", "Aashish Gupta")).strip()
     github_url = ""
     for l in links:
         if str(l.get("label", "")).strip().lower() == "github":
