@@ -1,4 +1,4 @@
-# Aashish Gupta
+# Data Scientist & AI Engineer
 
 [ashuguptahere@gmail.com](mailto:ashuguptahere@gmail.com) • [LinkedIn](https://linkedin.com/in/ashuguptahere) • [Leetcode](https://leetcode.com/ashuguptahere/) • [GfG](https://www.geeksforgeeks.org/user/ashuguptahere/) • [Codolio](https://codolio.com/profile/ashuguptahere) • [Kaggle](https://www.kaggle.com/ashuguptahere) • [GitHub](http://www.github.com/ashuguptahere) • [Portfolio](https://ashuguptahere.github.io)
 
@@ -69,7 +69,7 @@
 
 Bachelor of Technology, CSE _from_ Shaheed Bhagat Singh State Technical Campus (SBSSTC) — 2016 - 2020
 
-## Extra-Curricular Activities
+## 🎨 Extra-Curricular Activities
 
 - E-Cell & NSS Member at SBSSTC, Ferozepur, Punjab
 - System Incharge/Technician for the WebCam Feeds, Election Commission of India
