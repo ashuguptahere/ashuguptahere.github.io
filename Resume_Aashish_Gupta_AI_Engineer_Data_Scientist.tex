@@ -1,0 +1,378 @@
+\documentclass{resume} % Use the custom resume.cls style
+
+% Document margins
+\usepackage[a4paper, left=0.3in, top=0.3in, right=0.3in, bottom=0.3in]{geometry}
+
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+\usepackage{luacode}
+
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+
+% -------------------------
+% YAML loader (LuaLaTeX)
+% -------------------------
+\begin{luacode*}
+-- Minimal YAML loader (supports the subset used by data.yaml).
+-- If lyaml is available, we will prefer it.
+
+function trim(s)
+  return (s:gsub('^%s+', ''):gsub('%s+$', ''))
+end
+
+function parse_quoted_scalar(v)
+  v = trim(v)
+  if v == '' then return '' end
+
+  local first = v:sub(1,1)
+  local last  = v:sub(-1)
+
+  if first == "'" and last == "'" then
+    local inner = v:sub(2, -2)
+    inner = inner:gsub("''", "'")
+    return inner
+  end
+
+  if first == '"' and last == '"' then
+    local inner = v:sub(2, -2)
+    inner = inner:gsub('\\\\', '\\')
+    inner = inner:gsub('\\"', '"')
+    inner = inner:gsub('\\n', '\n')
+    inner = inner:gsub('\\t', '\t')
+    return inner
+  end
+
+  -- unquoted
+  return v
+end
+
+function is_blank_or_comment(line)
+  if not line then return true end
+  local t = trim(line)
+  return t == '' or t:sub(1,1) == '#'
+end
+
+function count_indent(line)
+  local _, n = line:find('^%s*')
+  return n or 0
+end
+
+function yaml_load_minimal(path)
+  local f = io.open(path, 'r')
+  if not f then
+    error('Could not open YAML file: ' .. path)
+  end
+  local lines = {}
+  for line in f:lines() do
+    table.insert(lines, line)
+  end
+  f:close()
+
+  local root = {}
+  local stack = { {indent = -1, node = root} }
+
+  local function current()
+    return stack[#stack]
+  end
+
+  local function pop_to(indent)
+    while #stack > 1 and current().indent >= indent do
+      table.remove(stack)
+    end
+  end
+
+  for i=1, #lines do
+    local line = lines[i]
+    if is_blank_or_comment(line) then
+      goto continue
+    end
+
+    local indent = count_indent(line)
+    local content = trim(line)
+
+    pop_to(indent)
+    local parent = current().node
+
+    -- List item
+    if content:sub(1,1) == '-' then
+      local rest = trim(content:sub(2))
+
+      if rest == '' then
+        local item = {}
+        table.insert(parent, item)
+        table.insert(stack, {indent = indent, node = item})
+        goto continue
+      end
+
+      local k, v = rest:match('^([%w_%-]+)%s*:%s*(.*)$')
+      if k then
+        local item = {}
+        item[k] = (v == '' and {} or parse_quoted_scalar(v))
+        table.insert(parent, item)
+        if v == '' then
+          table.insert(stack, {indent = indent, node = item[k]})
+        else
+          table.insert(stack, {indent = indent, node = item})
+        end
+      else
+        table.insert(parent, parse_quoted_scalar(rest))
+      end
+
+      goto continue
+    end
+
+    -- Key/value
+    local key, val = content:match('^([^:]+):%s*(.*)$')
+    if not key then
+      error('Could not parse YAML at line ' .. i .. ': ' .. content)
+    end
+
+    key = trim(key)
+
+    if val == '' then
+      parent[key] = {}
+      table.insert(stack, {indent = indent, node = parent[key]})
+    else
+      parent[key] = parse_quoted_scalar(val)
+    end
+
+    ::continue::
+  end
+
+  return root
+end
+
+function load_resume_yaml(path)
+  local ok, lyaml = pcall(require, 'lyaml')
+  if ok and lyaml then
+    local f = io.open(path, 'r')
+    if not f then error('Could not open YAML file: ' .. path) end
+    local s = f:read('*all')
+    f:close()
+    return lyaml.load(s)
+  end
+  return yaml_load_minimal(path)
+end
+
+-- LaTeX escaping for plain text fields (NOT for fields that already contain LaTeX).
+function latex_escape(s)
+  if s == nil then return '' end
+  s = tostring(s)
+  s = s:gsub('\\', '\\textbackslash{}')
+  s = s:gsub('{', '\\{')
+  s = s:gsub('}', '\\}')
+  s = s:gsub('%%', '\\%')
+  s = s:gsub('%$', '\\$')
+  s = s:gsub('#', '\\#')
+  s = s:gsub('&', '\\&')
+  s = s:gsub('_', '\\_')
+  s = s:gsub('~', '\\textasciitilde{}')
+  s = s:gsub('%^', '\\textasciicircum{}')
+  return s
+end
+
+-- Safer for URLs in \href: detokenize prevents TeX from treating special chars.
+function href(url, text)
+  url = url or ''
+  text = text or ''
+  return '\\href{\\detokenize{' .. url .. '}}{' .. text .. '}'
+end
+
+resume = load_resume_yaml('data.yaml')
+
+function safe_ipairs(t)
+  if type(t) ~= 'table' then
+    return function() end
+  end
+  return ipairs(t)
+end
+
+function print_address_lines()
+  local b = resume.basics or {}
+  tex.print(latex_escape(b.phone or ''))
+  tex.print('\\\\')
+  tex.print(href('mailto:' .. (b.email or ''), latex_escape(b.email or '')))
+
+  for _, link in safe_ipairs(b.links) do
+    tex.print('\\\\')
+    tex.print(href(link.url or '', latex_escape(link.label or '')))
+  end
+end
+
+function begin_rsection(title)
+  tex.print('\\begin{rSection}{' .. latex_escape(title) .. '}')
+end
+
+function end_rsection()
+  tex.print('\\end{rSection}')
+end
+
+function print_itemize(items_latex, itemsep)
+  tex.print('\\begin{itemize}')
+  if itemsep then
+    tex.print('\\setlength{\\itemsep}{' .. itemsep .. '}')
+  else
+    tex.print('\\itemsep -6pt {}')
+  end
+  for _, it in safe_ipairs(items_latex) do
+    tex.print('\\item ' .. it)
+  end
+  tex.print('\\end{itemize}')
+end
+
+function render_experience()
+  begin_rsection('EXPERIENCE')
+
+  for idx, job in safe_ipairs(resume.experience) do
+    tex.print('\\textbf{' .. latex_escape(job.role or '') .. '} \\hfill ' .. latex_escape(job.dates or '') .. '\\\\')
+    tex.print(latex_escape(job.company or '') .. ' \\hfill \\textit{' .. latex_escape(job.location or '') .. '}')
+
+    local vs = job.vspace_after_header
+    if vs and vs ~= '0pt' and vs ~= '' then
+      tex.print('\\vspace{' .. vs .. '}')
+    end
+
+    print_itemize(job.bullets_latex)
+
+    if idx < #resume.experience then
+      tex.print('')
+    end
+  end
+
+  end_rsection()
+end
+
+function render_internships()
+  begin_rsection('INTERNSHIPS')
+
+  for idx, it in safe_ipairs(resume.internships) do
+    local title = latex_escape(it.title or '')
+    if it.title_url and it.title_url ~= '' then
+      title = href(it.title_url, title)
+    end
+
+    tex.print('\\textbf{' .. title .. '} \\hfill ' .. latex_escape(it.dates or '') .. '\\\\')
+    tex.print(latex_escape(it.company or '') .. ' \\hfill \\textit{' .. latex_escape(it.location or '') .. '}')
+
+    local vs = it.vspace_after_header
+    if vs and vs ~= '0pt' and vs ~= '' then
+      tex.print('\\vspace{' .. vs .. '}')
+    end
+
+    print_itemize(it.bullets_latex)
+
+    if idx < #resume.internships then
+      tex.print('')
+    end
+  end
+
+  end_rsection()
+end
+
+function render_skills()
+  begin_rsection('SKILLS')
+  tex.print('\\begin{tabular}{ @{} >{\\bfseries}l @{\\hspace{1ex}} >{\\RaggedRight\\arraybackslash}p{17cm} }')
+
+  for _, s in safe_ipairs(resume.skills) do
+    local category = latex_escape(s.category or '')
+    local items = {}
+    for _, v in safe_ipairs(s.items) do
+      table.insert(items, latex_escape(v))
+    end
+    tex.print(category .. ' & ' .. table.concat(items, ', ') .. ' \\\\')
+  end
+
+  tex.print('\\end{tabular}')
+  end_rsection()
+end
+
+function render_projects()
+  begin_rsection('PROJECTS')
+  tex.print('\\begin{itemize}')
+  tex.print('\\setlength{\\itemsep}{-5pt}')
+  for _, p in safe_ipairs(resume.projects) do
+    local name = latex_escape(p.name or '')
+    local url = p.url or ''
+    local tail = p.tail_latex or ''
+    tex.print('\\item ' .. href(url, name) .. tail)
+  end
+  tex.print('\\end{itemize}')
+  end_rsection()
+end
+
+function render_achievements()
+  begin_rsection('Achievements')
+  tex.print('\\begin{itemize}')
+  tex.print('\\setlength{\\itemsep}{-6pt}')
+  for _, line in safe_ipairs((resume.achievements or {}).items_latex) do
+    tex.print('\\item ' .. line)
+  end
+  tex.print('\\end{itemize}')
+  end_rsection()
+end
+
+function render_education()
+  begin_rsection('Education')
+  local line = ((resume.education or {}).line_latex) or ''
+  tex.print(line)
+  end_rsection()
+end
+
+function render_extra()
+  begin_rsection('Extra-Curricular Activities')
+  tex.print('\\begin{itemize}')
+  tex.print('\\setlength{\\itemsep}{-6pt}')
+  for _, line in safe_ipairs((resume.extra or {}).items_latex) do
+    tex.print('\\item ' .. line)
+  end
+  tex.print('\\end{itemize}')
+  end_rsection()
+end
+
+function render_certifications()
+  begin_rsection('CERTIFICATIONS')
+  tex.print('\\vspace{-6pt}')
+
+  local cols = ((resume.certifications or {}).columns) or 3
+  tex.print('\\begin{multicols}{' .. tostring(cols) .. '}')
+  tex.print('\\begin{itemize}')
+  tex.print('\\setlength{\\itemsep}{-6pt}')
+
+  for _, c in safe_ipairs((resume.certifications or {}).items) do
+    local name = latex_escape(c.name or '')
+    local url = c.url or ''
+    tex.print('\\item ' .. href(url, name))
+  end
+
+  tex.print('\\end{itemize}')
+  tex.print('\\end{multicols}')
+
+  end_rsection()
+end
+
+function render_resume()
+  render_experience()
+  render_internships()
+  render_skills()
+  render_projects()
+  render_achievements()
+  render_education()
+  render_extra()
+  render_certifications()
+end
+\end{luacode*}
+
+% -------------------------
+% Header (name + address)
+% -------------------------
+\name{\directlua{tex.sprint(latex_escape((resume.basics or {}).name or ''))}}
+\address{\directlua{print_address_lines()}}
+
+\begin{document}
+
+\directlua{render_resume()}
+
+\end{document}
