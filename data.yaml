@@ -1,0 +1,217 @@
+# Resume data for resume.tex (LuaLaTeX)
+# Notes:
+# - Fields ending with *_latex are inserted into LaTeX as-is.
+# - Plain text fields are LaTeX-escaped by resume.tex.
+
+basics:
+  name: 'Aashish Gupta'
+  phone: '+351-923-126-997'
+  email: 'ashuguptahere@gmail.com'
+  links:
+    - label: 'LinkedIn'
+      url: 'https://linkedin.com/in/ashuguptahere'
+    - label: 'Leetcode'
+      url: 'https://leetcode.com/ashuguptahere/'
+    - label: 'GfG'
+      url: 'https://www.geeksforgeeks.org/user/ashuguptahere/'
+    - label: 'Codolio'
+      url: 'https://codolio.com/profile/ashuguptahere'
+    - label: 'Kaggle'
+      url: 'https://www.kaggle.com/ashuguptahere'
+    - label: 'GitHub'
+      url: 'http://www.github.com/ashuguptahere'
+    - label: 'Portfolio'
+      url: 'https://ashuguptahere.github.io'
+
+experience:
+  - role: 'Data Scientist & AI Engineer'
+    company: 'Quantum Leap'
+    location: 'Setúbal, Portugal'
+    dates: 'Dec 2023 - Present'
+    vspace_after_header: '-5pt'
+    bullets_latex:
+      - 'Leading and delivering computer vision solutions in Human Activity Recognition and Behavior Analysis to enhance retail loss prevention and identify suspicious customer behavior'
+      - 'Developed and deployed an end-to-end system using Ultralytics and custom computer vision pipelines'
+      - 'Orchestrated an in-house dataset with semi-automated labeling for real-world behavior detection'
+      - 'Deployed optimized models on NVIDIA Jetson AGX using DeepStream and TensorRT, \textbf{reducing inference time by 40\%} and enabling low-latency, high-throughput edge inference'
+      - 'Achieved \textbf{10-20x (1000-2000\%)} inference speedup by migrating Python-based code to C++ DeepStream pipelines optimized for NVIDIA hardware'
+      - 'Automated large-scale deployment with Ansible and GitHub Actions with scalable architecture; currently running on 10+ devices with architecture scalable to 1000+ devices'
+      - 'Contributed to AIOps/MLOps best practices by integrating CI/CD, remote monitoring, and model versioning for reliable, scalable deployment and lifecycle management'
+      - 'Led the development of a fully localized Qwen-2.5/3 LLM model tailored for a law firm client, mentoring 2 junior engineers and owning delivery of production-ready features.'
+      - 'Built a sophisticated chat interface allowing the client to interact with their data, facilitating quick identification of relevant documents and specific information within vast repositories of PDFs and text files.'
+      - 'Spearheaded \& successfully led initiatives in RAG \& LoRA-based fine-tuning, enhancing domain-specific model efficiency'
+      - 'Engineered backend solutions to streamline and analyze incoming streams, enabling real-time irregular behaviors detection'
+      - 'Led the development of a fully localized Llama-3 70B LLM model tailored for a law firm client'
+      - 'Built a sophisticated chat interface allowing the client to interact with their data, facilitating quick identification of relevant documents and specific information within vast repositories of PDFs and text files'
+
+  - role: 'Software Engineer 1'
+    company: 'MAQ Software'
+    location: 'Noida, India'
+    dates: 'Dec 2022 - Dec 2023'
+    vspace_after_header: '-6pt'
+    bullets_latex:
+      - 'Spearheaded initiatives in Retrieval-Augmented Generation (RAG)'
+      - 'Applied state-of-the-art LLMs like GPT-3.5, GPT-4, and Llama 2 for RAG applications'
+      - 'Optimized a legacy system using Python, NumPy \& Pandas, cutting runtime from 7 minutes to 10 seconds ($\approx 42\times$ faster)'
+      - 'Deployed production-grade solutions on Azure: Function App, Web App, Cognitive Search (Index/Indexer), Blob Storage, SQL Databases, Speech Service'
+      - 'Implemented a high-impact recommendation system for $\sim$1M users'
+
+  - role: 'System Engineer'
+    company: 'Tata Consultancy Services (TCS)'
+    location: 'Noida, India'
+    dates: 'Aug 2021 - Dec 2022'
+    vspace_after_header: '0pt'
+    bullets_latex:
+      - 'Led and executed numerous Data Analysis and Data Science Projects'
+      - 'Proficient in backend development in Python for robust, scalable applications'
+
+internships:
+  - title: 'Data Science Intern'
+    title_url: 'https://drive.google.com/file/d/1nJ8vXmALlt--85MqqDsExyLhBGVUJEuy/view?usp=sharing'
+    company: 'VerSe Innovation'
+    location: 'Bengaluru, India'
+    dates: 'Jul 2021 - Aug 2022'
+    vspace_after_header: '-6pt'
+    bullets_latex:
+      - 'Engaged in challenging Computer Vision endeavors, including tasks encompassing Image and Video Classification'
+
+  - title: 'AI Trainer'
+    title_url: 'https://drive.google.com/file/d/1WbFtlmQf4tBE1oLfCD2rgwM5YAAHLfI0/view?usp=sharing'
+    company: 'CETPA InfoTech Pvt. Ltd.'
+    location: 'Noida, India'
+    dates: 'Jan 2020 - Feb 2020'
+    vspace_after_header: '-6pt'
+    bullets_latex:
+      - 'Educated and taught college students in their 3rd and 4th years on a wide array of AI topics'
+
+  - title: 'Machine Learning & Deep Learning Intern'
+    title_url: 'https://drive.google.com/file/d/1diEasm0fFvI3mKhzQgii_QFMQ1rydur9/view?usp=sharing'
+    company: 'CETPA InfoTech Pvt. Ltd.'
+    location: 'Noida, India'
+    dates: 'Jun 2019 - Jul 2019'
+    vspace_after_header: '-6pt'
+    bullets_latex:
+      - 'Internship Involvement in Twitter Sentiment Analysis Project'
+
+skills:
+  - category: 'Technical'
+    items:
+      - 'AI'
+      - 'ML'
+      - 'DL'
+      - 'GenAI'
+      - 'Data Science'
+      - 'Data Analysis'
+      - 'Computer Vision'
+      - 'Anomaly Detection'
+      - 'Image Encryption'
+      - 'Python'
+      - 'Git/GitHub'
+      - 'MySQL'
+      - 'T-SQL'
+      - 'Video Analytics'
+      - 'DeepStream'
+      - 'GStreamer'
+      - 'MQTT'
+      - 'LLM'
+      - 'NLP'
+      - 'RAG'
+      - 'LoRA/QLoRA fine-tuning'
+      - 'Vector Databases'
+      - 'EDA'
+      - 'C/C++'
+      - 'DSA'
+      - 'Linux'
+      - 'PowerBI'
+      - 'AIOps'
+      - 'MLOps'
+      - 'Docker'
+      - 'Prometheus'
+      - 'Grafana'
+      - 'Tailscale'
+      - 'Redis'
+      - 'AWS'
+      - 'Azure'
+
+  - category: 'Libraries'
+    items:
+      - 'PyTorch'
+      - 'TensorFlow'
+      - 'Keras'
+      - 'OpenCV'
+      - 'scikit-learn'
+      - 'NumPy'
+      - 'Pandas'
+      - 'Seaborn'
+      - 'Plotly'
+      - 'NLTK'
+      - 'OpenAI'
+      - 'Streamlit'
+      - 'Gradio'
+      - 'Flask'
+      - 'FastAPI'
+      - 'LangChain'
+      - 'LangGraph'
+      - 'LlamaIndex'
+      - 'uv'
+      - 'ruff'
+
+  - category: 'Exposure'
+    items:
+      - 'C#'
+      - 'Java'
+      - 'HTML'
+      - 'CSS'
+      - 'JavaScript (ECMAScript)'
+      - 'Mojo'
+      - 'Rust'
+      - 'Zig'
+
+  - category: 'Languages'
+    items:
+      - 'English'
+      - 'Hindi'
+      - 'Portuguese (beginner)'
+
+projects:
+  - name: 'Real-Time Sign Language Detection'
+    url: 'https://github.com/ashuguptahere/sign-language-detection'
+    tail_latex: '{: Achieved a validation accuracy of 99.348\% and a minimal loss of 0.03621 on ResNet102.} Dataset: {\href{https://www.kaggle.com/grassknoted/asl-alphabet}{ASL Alphabet}}'
+
+  - name: 'Human Activity Recognition'
+    url: 'https://github.com/ashuguptahere/video-classification-ucf101'
+    tail_latex: '{: Conducted Video Classification on two distinct massive datasets, UCF11 and UCF101. Demonstrated robust validation accuracy ranging from 90\% to 95\% on ResNet102 | Datasets: {\href{https://www.kaggle.com/ashuguptahere/video-classification-ucf11}{UCF11}}, {\href{https://www.kaggle.com/ashuguptahere/video-classification-ucf101}{UCF101}}}'
+
+  - name: 'AI Cover Letter Generator'
+    url: 'https://github.com/ashuguptahere/cover-letter-gen'
+    tail_latex: '{: Simple and intuitive web interface made using Gradio with real-time Cover Letter Generation. Usage of Llama 3.2 model from Ollama and usage of uv package manager for package dependency.}'
+
+achievements:
+  items_latex:
+    - '\href{https://drive.google.com/file/d/1ARz_BLLcELOdsD-tSp_IxuJ8UMXhP7_6/view?usp=share_link}{Gate 2021} cleared with Marks: 25.21 \& Gate Score: 339'
+    - 'Practiced over \href{https://codolio.com/profile/ashuguptahere}{190+ DSA questions} on various platforms'
+
+education:
+  line_latex: '{Bachelor of Technology, CSE} {\it from} Shaheed Bhagat Singh State Technical Campus (SBSSTC) \hfill {2016 - 2020}'
+
+extra:
+  items_latex:
+    - 'E-Cell \& NSS Member at SBSSTC, Ferozepur, Punjab'
+    - 'System Incharge/Technician for the WebCam Feeds, Election Commission of India'
+    - 'Examinar at Mayank Foundation for Painting Competition'
+
+certifications:
+  columns: 3
+  items:
+    - name: 'Coding Blocks - Algo++'
+      url: 'https://drive.google.com/file/d/1hiyOK3MlFXi0583gJTVbafHLXmegdTvS/view?usp=sharing'
+    - name: 'Coursera - Deep Learning'
+      url: 'https://www.coursera.org/account/accomplishments/specialization/certificate/UCE9XTXVFWEW'
+    - name: 'CETPA - Machine Learning'
+      url: 'https://drive.google.com/file/d/1mK1c-I2CtkLyqJjuNWmpbe8s171mp99e/view?usp=sharing'
+    - name: 'CETPA - Deep Learning'
+      url: 'https://drive.google.com/file/d/1T7H8U4ZWa9Rv8AQLp2j44RJvE-3HzsC-/view?usp=sharing'
+    - name: 'Microsoft - Fundamental of ML'
+      url: 'https://drive.google.com/file/d/1SSPmCUa9mdKV8BjQj_RvWyFiPn-vGKpz/view?usp=sharing'
+    - name: 'ISOEH - Machine Learning'
+      url: 'https://drive.google.com/file/d/1Pk-nYnK60L8UbcFB3BfSbxoZ3xy0Froh/view'
