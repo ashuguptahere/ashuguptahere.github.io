@@ -34,6 +34,10 @@ import yaml
 RE_HREF = re.compile(r"""\\href\s*{\s*([^}]+?)\s*}\s*{\s*([^}]+?)\s*}""")
 RE_TEXTBF = re.compile(r"""\\textbf\s*{\s*([^}]+?)\s*}""")
 RE_IT = re.compile(r"""{\s*\\it\s+([^}]+)\s*}""")
+RE_SIM_DOLLAR = re.compile(r"""\$\\sim\$""")
+RE_SIM_BRACE = re.compile(r"""\$\\\{\\sim\\\}\$""")
+RE_APPROX = re.compile(r"""\$\\approx\s""")
+RE_TIMES = re.compile(r"""\\times\s*\$""")
 
 
 def build_social_badges(links: list[dict]) -> str:
@@ -96,6 +100,12 @@ def latexish_to_md(s: str) -> str:
 
     # Layout-only TeX
     s = s.replace(r"\hfill", " — ")
+
+    # LaTeX math symbols -> Markdown equivalent
+    s = RE_SIM_DOLLAR.sub("~", s)
+    s = RE_SIM_BRACE.sub("~", s)
+    s = RE_APPROX.sub("~", s)
+    s = RE_TIMES.sub("x", s)
 
     # Drop braces used only for grouping (keeps content synced)
     s = s.replace("{", "").replace("}", "")
@@ -172,11 +182,15 @@ def main() -> int:
     section(md, "🧑‍💻 INTERNSHIPS")
     for it in data.get("internships", []) or []:
         title = str(it.get("title", "")).strip()
+        title_url = str(it.get("title_url", "")).strip()
         dates = str(it.get("dates", "")).strip()
         company = str(it.get("company", "")).strip()
         location = str(it.get("location", "")).strip()
 
-        md.append(f"**{title}** | _({dates})_<br>")
+        title_display = (
+            f"**{md_link(title, title_url)}**" if title_url else f"**{title}**"
+        )
+        md.append(f"{title_display} | _({dates})_<br>")
         md.append(f"**{company}** | _{location}_")
 
         for b in it.get("bullets_latex", []) or []:
@@ -233,10 +247,6 @@ def main() -> int:
         md.append(f"- {md_link(cname, curl)}")
     md.append("")
 
-    out_path.write_text("\n".join(md).rstrip() + "\n", encoding="utf-8")
-    # print(f"Wrote {out_path} from {in_path}")
-    # return 0
-
     section(md, "📬 SOCIALS")
     md.append(build_social_badges(links))
     md.append("")
@@ -256,6 +266,7 @@ def main() -> int:
 
     out_path.write_text("\n".join(md).rstrip() + "\n", encoding="utf-8")
     print(f"Wrote {out_path} from {in_path}")
+    return 0
 
 
 if __name__ == "__main__":

@@ -18,15 +18,16 @@
 - Spearheaded & successfully led initiatives in RAG & LoRA-based fine-tuning, enhancing domain-specific model efficiency
 - Engineered backend solutions to streamline and analyze incoming streams, enabling real-time irregular behaviors detection
 - Led the development of a fully localized Llama-3 70B LLM model tailored for a law firm client
-- Built a sophisticated chat interface allowing the client to interact with their data, facilitating quick identification of relevant documents and specific information within vast repositories of PDFs and text files
+- Mentored junior AI Engineers and Data Scientists, enforcing strong ML engineering practices and high-quality production code.
+- Contributed to AI team growth by participating in technical hiring, interview evaluations, and onboarding of new engineers.
 
 **Software Engineer 1** | _(Dec 2022 - Dec 2023)_<br>
 **MAQ Software** | _Noida, India_
 - Spearheaded initiatives in Retrieval-Augmented Generation (RAG)
 - Applied state-of-the-art LLMs like GPT-3.5, GPT-4, and Llama 2 for RAG applications
-- Optimized a legacy system using Python, NumPy & Pandas, cutting runtime from 7 minutes to 10 seconds ($\approx 42\times$ faster)
+- Optimized a legacy system using Python, NumPy & Pandas, cutting runtime from **7 minutes to 10 seconds (~42x faster)**
 - Deployed production-grade solutions on Azure: Function App, Web App, Cognitive Search (Index/Indexer), Blob Storage, SQL Databases, Speech Service
-- Implemented a high-impact recommendation system for $\sim$1M users
+- Implemented a high-impact recommendation system for ~1M users
 
 **System Engineer** | _(Aug 2021 - Dec 2022)_<br>
 **Tata Consultancy Services (TCS)** | _Noida, India_
@@ -35,15 +36,15 @@
 
 ## 🧑‍💻 INTERNSHIPS
 
-**Data Science Intern** | _(Jul 2021 - Aug 2022)_<br>
+**[Data Science Intern](https://drive.google.com/file/d/1nJ8vXmALlt--85MqqDsExyLhBGVUJEuy/view?usp=sharing)** | _(Jul 2021 - Aug 2022)_<br>
 **VerSe Innovation** | _Bengaluru, India_
 - Engaged in challenging Computer Vision endeavors, including tasks encompassing Image and Video Classification
 
-**AI Trainer** | _(Jan 2020 - Feb 2020)_<br>
+**[AI Trainer](https://drive.google.com/file/d/1WbFtlmQf4tBE1oLfCD2rgwM5YAAHLfI0/view?usp=sharing)** | _(Jan 2020 - Feb 2020)_<br>
 **CETPA InfoTech Pvt. Ltd.** | _Noida, India_
 - Educated and taught college students in their 3rd and 4th years on a wide array of AI topics
 
-**Machine Learning & Deep Learning Intern** | _(Jun 2019 - Jul 2019)_<br>
+**[Machine Learning & Deep Learning Intern](https://drive.google.com/file/d/1diEasm0fFvI3mKhzQgii_QFMQ1rydur9/view?usp=sharing)** | _(Jun 2019 - Jul 2019)_<br>
 **CETPA InfoTech Pvt. Ltd.** | _Noida, India_
 - Internship Involvement in Twitter Sentiment Analysis Project
 
