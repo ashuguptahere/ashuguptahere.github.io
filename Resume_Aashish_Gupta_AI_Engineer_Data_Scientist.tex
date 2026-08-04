@@ -192,8 +192,6 @@ end
 
 function print_address_lines()
   local b = resume.basics or {}
-  tex.print(latex_escape(b.phone or ''))
-  tex.print('\\\\')
   tex.print(href('mailto:' .. (b.email or ''), latex_escape(b.email or '')))
 
   for _, link in safe_ipairs(b.links) do
