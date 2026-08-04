@@ -1,6 +1,6 @@
 # Data Scientist & AI Engineer
 
-[ashuguptahere@gmail.com](mailto:ashuguptahere@gmail.com) • [LinkedIn](https://linkedin.com/in/ashuguptahere) • [Leetcode](https://leetcode.com/ashuguptahere/) • [GfG](https://www.geeksforgeeks.org/user/ashuguptahere/) • [Codolio](https://codolio.com/profile/ashuguptahere) • [Kaggle](https://www.kaggle.com/ashuguptahere) • [GitHub](http://www.github.com/ashuguptahere) • [Portfolio](https://ashuguptahere.github.io)
+[ashuguptahere@gmail.com](mailto:ashuguptahere@gmail.com) • [LinkedIn](https://linkedin.com/in/ashuguptahere) • [Leetcode](https://leetcode.com/u/ashuguptahere/) • [GfG](https://www.geeksforgeeks.org/profile/ashuguptahere/) • [Codolio](https://codolio.com/profile/ashuguptahere) • [Kaggle](https://www.kaggle.com/ashuguptahere) • [GitHub](http://www.github.com/ashuguptahere) • [Portfolio](https://ashuguptahere.github.io)
 
 ## 💼 EXPERIENCE
 
