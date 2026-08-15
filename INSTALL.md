@@ -1,7 +1,7 @@
 # Resume Generator
 
 ## Overview
-A single `data.yaml` file drives both the LaTeX resume (`Resume_Aashish_Gupta_AI_Engineer_Data_Scientist.tex`) and an automatically generated Markdown version (`Resume_Aashish_Gupta_AI_Engineer_Data_Scientist.md`) via `yaml_to_md.py`.
+A single `data.yaml` file drives both the LaTeX resume (`Resume_Aashish_Gupta_AI_Engineer_Data_Scientist.tex`) and an automatically generated Markdown version (`README.md`, which is also the GitHub Pages home page) via `yaml_to_md.py`.
 
 ## Prerequisites
 - Python 3.14 (tested)
@@ -15,11 +15,12 @@ uv sync
 
 ## Generate the Markdown Resume
 ```bash
-uv run yaml_to_md.py data.yaml Resume_Aashish_Gupta_AI_Engineer_Data_Scientist.md
+uv run yaml_to_md.py data.yaml README.md
 ```
 - The first argument is the YAML source (defaults to `data.yaml`).
-- The second argument is the Markdown destination (defaults to `Resume_Aashish_Gupta_AI_Engineer_Data_Scientist.md`).
-- The script prints `Wrote Resume_Aashish_Gupta_AI_Engineer_Data_Scientist.md from data.yaml` upon success and overwrites the target file each run.
+- The second argument is the Markdown destination (defaults to `README.md`).
+- The script prints `Wrote README.md from data.yaml` upon success and overwrites the target file each run.
+- `README.md` is what GitHub Pages renders as the site home page, so regenerate it after every `data.yaml` edit.
 
 ## Update the LaTeX/PDF Resume
 1. Edit `data.yaml` and re-run `yaml_to_md.py` if you also want the Markdown copy refreshed.

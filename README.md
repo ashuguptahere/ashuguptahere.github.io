@@ -1,89 +1,133 @@
-# Data Scientist & AI Engineer
+# Aashish Gupta
 
-[ashuguptahere@gmail.com](mailto:ashuguptahere@gmail.com) • [LinkedIn](https://linkedin.com/in/ashuguptahere) • [Leetcode](https://leetcode.com/u/ashuguptahere/) • [GfG](https://www.geeksforgeeks.org/profile/ashuguptahere/) • [Codolio](https://codolio.com/profile/ashuguptahere) • [Kaggle](https://www.kaggle.com/ashuguptahere) • [GitHub](http://www.github.com/ashuguptahere) • [Portfolio](https://ashuguptahere.github.io)
+## Data Scientist & AI Engineer
+
+**AI/ML Engineer · Computer Vision Engineer · Data Scientist · MLOps**
+
+**Portugal** • **Portugal Temporary Residence Permit - work authorized**
+
+[ashuguptahere@gmail.com](mailto:ashuguptahere@gmail.com) • [linkedin.com/in/ashuguptahere](https://linkedin.com/in/ashuguptahere) • [github.com/ashuguptahere](http://www.github.com/ashuguptahere) • [ashuguptahere.github.io](https://ashuguptahere.github.io) • [kaggle.com/ashuguptahere](https://www.kaggle.com/ashuguptahere) • [leetcode.com/u/ashuguptahere](https://leetcode.com/u/ashuguptahere/) • [geeksforgeeks.org/profile/ashuguptahere](https://www.geeksforgeeks.org/profile/ashuguptahere/) • [codolio.com/profile/ashuguptahere](https://codolio.com/profile/ashuguptahere)
+
+📄 **[Download Resume (PDF)](Resume_Aashish_Gupta_AI_Engineer_Data_Scientist.pdf)**
+
+## 🎯 SUMMARY
+
+Data Scientist and AI/ML Engineer with 5+ years of experience delivering production Computer Vision, GenAI/LLM and edge AI systems, spanning Machine Learning Engineer, Computer Vision Engineer and MLOps responsibilities. Seeking full-time Data Science, AI Engineering or Machine Learning Engineering roles.
 
 ## 💼 EXPERIENCE
 
-**Data Scientist & AI Engineer** | _(Dec 2023 - Present)_<br>
-**Quantum Leap** | _Setúbal, Portugal_
-- Leading and delivering computer vision solutions in Human Activity Recognition and Behavior Analysis to enhance retail loss prevention and identify suspicious customer behavior
-- Developed and deployed an end-to-end system using Ultralytics and custom computer vision pipelines
-- Orchestrated an in-house dataset with semi-automated labeling for real-world behavior detection
-- Deployed optimized models on NVIDIA Jetson AGX using DeepStream and TensorRT, **reducing inference time by 40%** and enabling low-latency, high-throughput edge inference
-- Achieved **10-20x (1000-2000%)** inference speedup by migrating Python-based code to C++ DeepStream pipelines optimized for NVIDIA hardware
-- Automated large-scale deployment with Ansible and GitHub Actions with scalable architecture; currently running on 10+ devices with architecture scalable to 1000+ devices
-- Contributed to AIOps/MLOps best practices by integrating CI/CD, remote monitoring, and model versioning for reliable, scalable deployment and lifecycle management
-- Led the development of a fully localized Qwen-2.5/3 LLM model tailored for a law firm client, mentoring 2 junior engineers and owning delivery of production-ready features.
-- Built a sophisticated chat interface allowing the client to interact with their data, facilitating quick identification of relevant documents and specific information within vast repositories of PDFs and text files.
-- Spearheaded & successfully led initiatives in RAG & LoRA-based fine-tuning, enhancing domain-specific model efficiency
-- Engineered backend solutions to streamline and analyze incoming streams, enabling real-time irregular behaviors detection
-- Led the development of a fully localized Llama-3 70B LLM model tailored for a law firm client
-- Mentored junior AI Engineers and Data Scientists, enforcing strong ML engineering practices and high-quality production code.
-- Contributed to AI team growth by participating in technical hiring, interview evaluations, and onboarding of new engineers.
+**Quantum Leap** | _Setúbal, Portugal_<br>
+_Data Scientist & AI Engineer_ | _(Dec 2023 - Jul 2026)_
 
-**Software Engineer 1** | _(Dec 2022 - Dec 2023)_<br>
-**MAQ Software** | _Noida, India_
-- Spearheaded initiatives in Retrieval-Augmented Generation (RAG)
-- Applied state-of-the-art LLMs like GPT-3.5, GPT-4, and Llama 2 for RAG applications
-- Optimized a legacy system using Python, NumPy & Pandas, cutting runtime from **7 minutes to 10 seconds (~42x faster)**
-- Deployed production-grade solutions on Azure: Function App, Web App, Cognitive Search (Index/Indexer), Blob Storage, SQL Databases, Speech Service
-- Implemented a high-impact recommendation system for ~1M users
+**Stack:** Python, C/C++, DeepStream, TensorRT, CUDA, NVIDIA Jetson Orin AGX, Ultralytics, DETR, RT-DETR, RF-DETR, Ansible, GitHub Actions, Docker, Prometheus, Grafana, vLLM, Ollama, LangChain, Qdrant
 
-**System Engineer** | _(Aug 2021 - Dec 2022)_<br>
-**Tata Consultancy Services (TCS)** | _Noida, India_
-- Led and executed numerous Data Analysis and Data Science Projects
-- Proficient in backend development in Python for robust, scalable applications
+- Led computer vision for Human Activity Recognition, behavior analysis and anomaly detection in retail loss prevention
+- Cut inference latency **40%** on NVIDIA Jetson AGX by optimizing and quantizing models for edge deployment
+- Delivered a further **10-20x (1000-2000%)** throughput gain by porting Python inference to C++ DeepStream pipelines
+- Led fully localized, on-premise LLM deployments (Llama-3 70B, Qwen-2.5/3/3.5) for scene summarization
+- Applied RAG and LoRA/QLoRA fine-tuning to ship a law-firm document intelligence product
+- Built a conversational chat interface with semantic search over vast PDF and text repositories
+- Automated fleet deployment and CI/CD across 15 edge devices serving 120 cameras in ~10 stores, scalable to 1000+
+- Curated an in-house dataset with semi-automated labeling and built stream-processing backends
 
-## 🧑‍💻 INTERNSHIPS
+**MAQ Software** | _Noida, India_<br>
+_Software Engineer 1_ | _(Dec 2022 - Dec 2023)_
 
-**[Data Science Intern](https://drive.google.com/file/d/1nJ8vXmALlt--85MqqDsExyLhBGVUJEuy/view?usp=sharing)** | _(Jul 2021 - Aug 2022)_<br>
-**VerSe Innovation** | _Bengaluru, India_
-- Engaged in challenging Computer Vision endeavors, including tasks encompassing Image and Video Classification
+**Stack:** Python, NumPy, Pandas, Azure Functions, Azure Web App, Azure Cognitive Search, Azure Blob Storage, Azure SQL, Azure Speech, GPT-3.5, GPT-4, Llama 2
 
-**[AI Trainer](https://drive.google.com/file/d/1WbFtlmQf4tBE1oLfCD2rgwM5YAAHLfI0/view?usp=sharing)** | _(Jan 2020 - Feb 2020)_<br>
-**CETPA InfoTech Pvt. Ltd.** | _Noida, India_
-- Educated and taught college students in their 3rd and 4th years on a wide array of AI topics
+- Spearheaded Retrieval-Augmented Generation (RAG) initiatives with state-of-the-art LLMs for document retrieval
+- Cut a legacy pipeline runtime from **7 minutes to 2 seconds (~210x faster)** through vectorized refactoring
+- Deployed production cloud solutions across serverless functions, web apps, cognitive search, blob storage and SQL
+- Implemented a high-impact recommendation system serving ~1M users
 
-**[Machine Learning & Deep Learning Intern](https://drive.google.com/file/d/1diEasm0fFvI3mKhzQgii_QFMQ1rydur9/view?usp=sharing)** | _(Jun 2019 - Jul 2019)_<br>
-**CETPA InfoTech Pvt. Ltd.** | _Noida, India_
-- Internship Involvement in Twitter Sentiment Analysis Project
+**Tata Consultancy Services (TCS)** | _Noida, India_<br>
+_System Engineer_ | _(Aug 2021 - Dec 2022)_
 
-## 🛠️ SKILLS
+**Stack:** Python, MySQL, T-SQL, PowerBI
 
-- **Technical:** AI, ML, DL, GenAI, Data Science, Data Analysis, Computer Vision, Anomaly Detection, Image Encryption, Python, Git/GitHub, MySQL, T-SQL, Video Analytics, DeepStream, GStreamer, MQTT, LLM, NLP, RAG, LoRA/QLoRA fine-tuning, Vector Databases, EDA, C/C++, DSA, Linux, PowerBI, AIOps, MLOps, Docker, Prometheus, Grafana, Tailscale, Redis, AWS, Azure
-- **Libraries:** PyTorch, TensorFlow, Keras, OpenCV, scikit-learn, NumPy, Pandas, Seaborn, Plotly, NLTK, OpenAI, Streamlit, Gradio, Flask, FastAPI, LangChain, LangGraph, LlamaIndex, uv, ruff
-- **Exposure:** C#, Java, HTML, CSS, JavaScript (ECMAScript), Mojo, Rust, Zig
-- **Languages:** English, Hindi, Portuguese (beginner)
+- Delivered data analysis and data science projects across multiple client engagements
+- Built and maintained backend services for robust, scalable applications
 
-## 📂 PROJECTS
+**VerSe Innovation** | _Bengaluru, India_<br>
+_[Data Science Intern (Internship)](https://drive.google.com/file/d/1nJ8vXmALlt--85MqqDsExyLhBGVUJEuy/view?usp=sharing)_ | _(Jul 2021 - Aug 2021)_
 
-- **[Real-Time Sign Language Detection](https://github.com/ashuguptahere/sign-language-detection)** : Achieved a validation accuracy of 99.348% and a minimal loss of 0.03621 on ResNet102. Dataset: [ASL Alphabet](https://www.kaggle.com/grassknoted/asl-alphabet)
-- **[Human Activity Recognition](https://github.com/ashuguptahere/video-classification-ucf101)** : Conducted Video Classification on two distinct massive datasets, UCF11 and UCF101. Demonstrated robust validation accuracy ranging from 90% to 95% on ResNet102. Datasets: [UCF11](https://www.kaggle.com/ashuguptahere/video-classification-ucf11), [UCF101](https://www.kaggle.com/ashuguptahere/video-classification-ucf101)
-- **[AI Cover Letter Generator](https://github.com/ashuguptahere/cover-letter-gen)** : Simple and intuitive web interface made using Gradio with real-time Cover Letter Generation. Usage of Llama 3.2 model from Ollama and usage of uv package manager for package dependency.
+**Stack:** PyTorch, OpenCV
 
-## 🏆 Achievements
+- Developed image and video classification models over large-scale media content
 
-- [Gate 2021](https://drive.google.com/file/d/1ARz_BLLcELOdsD-tSp_IxuJ8UMXhP7_6/view?usp=share_link) cleared with Marks: 25.21 & Gate Score: 339
-- Practiced over [190+ DSA questions](https://codolio.com/profile/ashuguptahere) on various platforms
+**CETPA InfoTech Pvt. Ltd.** | _Noida, India_<br>
+_[AI Trainer (Internship)](https://drive.google.com/file/d/1WbFtlmQf4tBE1oLfCD2rgwM5YAAHLfI0/view?usp=sharing)_ | _(Jan 2020 - Feb 2020)_
 
-## 🎓 Education
+- Taught artificial intelligence, machine learning and deep learning topics to 3rd- and 4th-year engineering students
+
+**CETPA InfoTech Pvt. Ltd.** | _Noida, India_<br>
+_[Machine Learning & Deep Learning Intern (Internship)](https://drive.google.com/file/d/1diEasm0fFvI3mKhzQgii_QFMQ1rydur9/view?usp=sharing)_ | _(Jun 2019 - Jul 2019)_
+
+**Stack:** NLTK, scikit-learn
+
+- Built a Twitter sentiment analysis pipeline applying natural language processing techniques
+
+## 🎓 EDUCATION
 
 Bachelor of Technology, CSE _from_ Shaheed Bhagat Singh State Technical Campus (SBSSTC) — 2016 - 2020
 
-## 🎨 Extra-Curricular Activities
+## 🛠️ SKILLS & INTERESTS
 
+- **AI & Machine Learning:** AI, ML, DL, GenAI, Data Science, Data Analysis, Statistical Analysis, EDA, Anomaly Detection, Recommender Systems, Dataset Curation, Data Labeling & Annotation
+- **Computer Vision:** Computer Vision, Object Detection, Object Tracking, Multi-Object Tracking, Action Recognition, Human Activity Recognition, Video Classification, Image Classification, Video Analytics, Behavior Analysis, Image Encryption
+- **GenAI & LLM:** LLM, NLP, RAG, Prompt Engineering, LoRA/QLoRA Fine-Tuning, PEFT, Agentic AI, Multimodal, Semantic Search, Embeddings, Vector Databases, Document Intelligence, Conversational AI, Sentiment Analysis
+- **Edge & Optimization:** Edge AI, Edge Computing, Embedded Systems, Real-Time Inference, Low-Latency Systems, Inference Optimization, Model Quantization (INT8/FP16), CUDA, TensorRT, DeepStream, GStreamer, MQTT
+- **MLOps & DevOps:** MLOps, AIOps, CI/CD, GitHub Actions, Ansible, Infrastructure as Code, Docker, Model Deployment, Model Monitoring, Model Versioning, Prometheus, Grafana, Tailscale, Linux
+- **Cloud:** AWS, Azure, Azure Functions, Azure Web App, Azure Cognitive Search, Azure Blob Storage, Azure SQL, Azure Speech
+- **Backend & Data:** Backend Development, REST API, Microservices, ETL & Data Pipelines, MySQL, T-SQL, Redis, Data Visualization, PowerBI
+- **Programming:** Python, C/C++, Bash, Fish, SQL, DSA, Git/GitHub
+- **Hardware:** NVIDIA Jetson Orin AGX, NVIDIA Jetson THOR, Raspberry Pi
+- **Models:** GPT-3.5, GPT-4, Llama 2, Llama 3 (70B), Llama 3.2, Qwen-2.5/3/3.5, YOLO11, DETR, RT-DETR, RF-DETR, ResNet
+- **Libraries:** PyTorch, TensorFlow, Keras, OpenCV, Ultralytics, scikit-learn, NumPy, Pandas, Matplotlib, Seaborn, Plotly, NLTK, Hugging Face Transformers, OpenAI, Ollama, vLLM, ONNX, ONNX Runtime, Triton Inference Server, LangChain, LangGraph, LlamaIndex, FAISS, Qdrant, Chroma, pgvector, Streamlit, Gradio, Flask, FastAPI, pytest, uv, ruff
+- **Compliance:** GDPR, Data Privacy
+- **Leadership:** Technical Leadership, Mentoring, Code Review, Technical Hiring, Cross-functional Collaboration, Communication, Teamwork, Problem Solving, Time Management
+- **Exposure:** C#, Java, HTML, CSS, JavaScript (ECMAScript), Mojo, Rust, Zig
+- **Languages:** English (C2), Hindi (Native), Portuguese (A2)
+
+## 📂 PROJECTS
+
+- **[Real-Time Sign Language Detection](https://github.com/ashuguptahere/sign-language-detection)** : 99.348% validation accuracy on ResNet102. Dataset: [ASL Alphabet](https://www.kaggle.com/grassknoted/asl-alphabet)
+- **[Human Activity Recognition](https://github.com/ashuguptahere/video-classification-ucf101)** : 90-95% validation accuracy on ResNet102. Published datasets: [UCF11](https://www.kaggle.com/ashuguptahere/video-classification-ucf11), [UCF101](https://www.kaggle.com/ashuguptahere/video-classification-ucf101)
+- **[POLAR to YOLO11 Conversion & Train](https://github.com/ashuguptahere/POLAR-yolo-conversion-and-train)** : Dataset conversion and training pipelines for posture-level action recognition.
+- **Self-Hosted VPN on Raspberry Pi** : Private VPN on a Raspberry Pi with Tailscale for secure remote access from anywhere.
+- **[AI Cover Letter Generator](https://github.com/ashuguptahere/cover-letter-gen)** : Gradio web interface generating cover letters in real time with Llama 3.2 on Ollama.
+
+## 🏆 ACHIEVEMENTS
+
+- [GATE 2021](https://drive.google.com/file/d/1ARz_BLLcELOdsD-tSp_IxuJ8UMXhP7_6/view?usp=share_link) cleared with Marks: 25.21 & GATE Score: 339
+- Solved [220+ DSA questions](https://codolio.com/profile/ashuguptahere) across competitive programming platforms
+
+## 🤝 LEADERSHIP & ACTIVITIES
+
+- Mentored junior AI Engineers and Data Scientists, enforcing production ML standards and code quality
+- Drove AI team growth through technical hiring, interview panels and onboarding of new engineers
 - E-Cell & NSS Member at SBSSTC, Ferozepur, Punjab
 - System Incharge/Technician for the WebCam Feeds, Election Commission of India
-- Examinar at Mayank Foundation for Painting Competition
+- Examiner at Mayank Foundation for Painting Competition
 
 ## 📜 CERTIFICATIONS
 
 - [Coding Blocks - Algo++](https://drive.google.com/file/d/1hiyOK3MlFXi0583gJTVbafHLXmegdTvS/view?usp=sharing)
-- [Coursera - Deep Learning](https://www.coursera.org/account/accomplishments/specialization/certificate/UCE9XTXVFWEW)
+- [Coursera - Deep Learning Specialization](https://www.coursera.org/account/accomplishments/specialization/certificate/UCE9XTXVFWEW)
 - [CETPA - Machine Learning](https://drive.google.com/file/d/1mK1c-I2CtkLyqJjuNWmpbe8s171mp99e/view?usp=sharing)
 - [CETPA - Deep Learning](https://drive.google.com/file/d/1T7H8U4ZWa9Rv8AQLp2j44RJvE-3HzsC-/view?usp=sharing)
-- [Microsoft - Fundamental of ML](https://drive.google.com/file/d/1SSPmCUa9mdKV8BjQj_RvWyFiPn-vGKpz/view?usp=sharing)
+- [Microsoft - Fundamentals of Machine Learning](https://drive.google.com/file/d/1SSPmCUa9mdKV8BjQj_RvWyFiPn-vGKpz/view?usp=sharing)
 - [ISOEH - Machine Learning](https://drive.google.com/file/d/1Pk-nYnK60L8UbcFB3BfSbxoZ3xy0Froh/view)
+
+## 📈 STATS
+
+[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=ashuguptahere&show_icons=true&hide_border=true&count_private=true)](http://www.github.com/ashuguptahere)
+[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=ashuguptahere&layout=compact&hide_border=true&langs_count=10)](http://www.github.com/ashuguptahere)
+[![GitHub Streak](https://streak-stats.demolab.com?user=ashuguptahere&hide_border=true)](http://www.github.com/ashuguptahere)
+[![LeetCode Stats](https://leetcard.jacoblin.cool/ashuguptahere?ext=heatmap)](https://leetcode.com/u/ashuguptahere/)
+[![Codolio](https://img.shields.io/badge/Codolio-View%20Profile-1f2937?style=for-the-badge)](https://codolio.com/profile/ashuguptahere)
+[![GeeksforGeeks](https://img.shields.io/badge/GeeksforGeeks-View%20Profile-2f8d46?style=for-the-badge&logo=geeksforgeeks&logoColor=white)](https://www.geeksforgeeks.org/profile/ashuguptahere/)
+[![Kaggle](https://img.shields.io/badge/Kaggle-View%20Profile-20beff?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/ashuguptahere)
 
 ## 📬 SOCIALS
 

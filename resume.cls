@@ -73,9 +73,12 @@
 }
 
 % \printname is used to print the name as a page header
+% Name is set in its natural case: the Harvard format uses normal case, not the
+% \MakeUppercase this class originally shipped with. Re-wrap \@name in
+% \MakeUppercase here to get the old all-caps look back.
 \def \printname {
   \begingroup
-    \hfil{\MakeUppercase{\namesize\bf \@name}}\hfil
+    \hfil{\namesize\bf \@name}\hfil
     \nameskip\break
   \endgroup
 }
