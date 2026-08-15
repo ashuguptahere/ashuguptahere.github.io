@@ -19,6 +19,9 @@
   title: basics.name + " - " + basics.headline,
   author: basics.name,
   keywords: data.skills.map(s => s.items).flatten(),
+  // Omit the build timestamp so the PDF is byte-reproducible and a rebuild
+  // with no content change leaves the working tree clean.
+  date: none,
 )
 
 #set page(
