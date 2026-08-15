@@ -69,13 +69,24 @@ def build_stats_cards(links: list[dict]) -> list[str]:
     """
     Profile stat cards/badges.
 
-    github-readme-stats.vercel.app (503) and streak-stats.demolab.com
-    (unreachable) are deliberately not used: both are free-tier community
-    services that rate-limit and go down, and a dead card renders as a broken
-    image on the live site. Only endpoints that actually respond are used.
+    github-readme-stats.vercel.app is deliberately not used: it answers 503.
+    github-stats-extended.vercel.app is the drop-in replacement and serves a
+    real card. streak-stats.demolab.com is skipped as well - it answered 200
+    on one check and was unreachable on another, and a card that is down
+    renders as a broken image on the live site.
     """
     by_label = links_by_label(links)
     cards = []
+
+    github = by_label.get("github")
+    if github:
+        user = url_username(github)
+        cards.append(
+            f"[![GitHub Stats](https://github-stats-extended.vercel.app/api?username={user}&show_icons=true&hide_border=true)]({github})"
+        )
+        cards.append(
+            f"[![Top Languages](https://github-stats-extended.vercel.app/api/top-langs?username={user}&layout=compact&hide_border=true&langs_count=10)]({github})"
+        )
 
     leetcode = by_label.get("leetcode")
     if leetcode:
@@ -227,18 +238,16 @@ def main() -> int:
     resume_pdf = str(basics.get("resume_pdf", "")).strip()
     links = basics.get("links", []) or []
 
-    # The name is the H1: it is the page title on GitHub Pages and the first
-    # thing a reader (or a search engine) sees. Everything else in the header
-    # is kept to two compact lines so the page opens on content, not on a wall
-    # of metadata.
+    # No name heading here. GitHub Pages renders this file inside a theme whose
+    # sidebar already prints `title` from _config.yml, so an H1 with the name
+    # showed it twice. The sidebar carries the name; the page opens on the role.
+    # (`name` is still used for the footer credit below.)
     md: list[str] = []
-    md.append(f"# {name}")
-    md.append("")
 
     # `titles` is ATS title-matching padding for the PDF; next to the headline
     # it just repeats "Data Scientist", so the site shows the headline only.
     if profile:
-        md.append(f"### {profile}")
+        md.append(f"# {profile}")
         md.append("")
 
     where = [b for b in (location, work_auth) if b]

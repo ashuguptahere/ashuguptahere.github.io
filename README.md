@@ -1,6 +1,4 @@
-# Aashish Gupta
-
-### Data Scientist & AI Engineer
+# Data Scientist & AI Engineer
 
 Portugal · Portugal Temporary Residence Permit - work authorized
 
@@ -119,6 +117,8 @@ Bachelor of Technology, CSE _from_ Shaheed Bhagat Singh State Technical Campus (
 
 ## 📈 STATS
 
+[![GitHub Stats](https://github-stats-extended.vercel.app/api?username=ashuguptahere&show_icons=true&hide_border=true)](http://www.github.com/ashuguptahere)
+[![Top Languages](https://github-stats-extended.vercel.app/api/top-langs?username=ashuguptahere&layout=compact&hide_border=true&langs_count=10)](http://www.github.com/ashuguptahere)
 [![LeetCode Stats](https://leetcard.jacoblin.cool/ashuguptahere?ext=heatmap)](https://leetcode.com/u/ashuguptahere/)
 [![GitHub](https://img.shields.io/badge/GitHub-View%20Profile-181717?style=for-the-badge&logo=github&logoColor=white)](http://www.github.com/ashuguptahere)
 [![Codolio](https://img.shields.io/badge/Codolio-View%20Profile-1f2937?style=for-the-badge)](https://codolio.com/profile/ashuguptahere)

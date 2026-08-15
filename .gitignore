@@ -8,3 +8,8 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Build artifacts (LaTeX leftovers, tool logs)
+*.aux
+*.log
+*.out
