@@ -1,12 +1,10 @@
 # Aashish Gupta
 
-## Data Scientist & AI Engineer
+### Data Scientist & AI Engineer
 
-**AI/ML Engineer · Computer Vision Engineer · Data Scientist · MLOps**
+Portugal · Portugal Temporary Residence Permit - work authorized
 
-**Portugal** • **Portugal Temporary Residence Permit - work authorized**
-
-[ashuguptahere@gmail.com](mailto:ashuguptahere@gmail.com) • [linkedin.com/in/ashuguptahere](https://linkedin.com/in/ashuguptahere) • [github.com/ashuguptahere](http://www.github.com/ashuguptahere) • [ashuguptahere.github.io](https://ashuguptahere.github.io) • [kaggle.com/ashuguptahere](https://www.kaggle.com/ashuguptahere) • [leetcode.com/u/ashuguptahere](https://leetcode.com/u/ashuguptahere/) • [geeksforgeeks.org/profile/ashuguptahere](https://www.geeksforgeeks.org/profile/ashuguptahere/) • [codolio.com/profile/ashuguptahere](https://codolio.com/profile/ashuguptahere)
+[ashuguptahere@gmail.com](mailto:ashuguptahere@gmail.com) · [LinkedIn](https://linkedin.com/in/ashuguptahere) · [GitHub](http://www.github.com/ashuguptahere) · [Portfolio](https://ashuguptahere.github.io) · [Kaggle](https://www.kaggle.com/ashuguptahere) · [Leetcode](https://leetcode.com/u/ashuguptahere/) · [GfG](https://www.geeksforgeeks.org/profile/ashuguptahere/) · [Codolio](https://codolio.com/profile/ashuguptahere)
 
 📄 **[Download Resume (PDF)](Resume_Aashish_Gupta_AI_Engineer_Data_Scientist.pdf)**
 
@@ -16,8 +14,8 @@ Data Scientist and AI/ML Engineer with 5+ years of experience delivering product
 
 ## 💼 EXPERIENCE
 
-**Quantum Leap** | _Setúbal, Portugal_<br>
-_Data Scientist & AI Engineer_ | _(Dec 2023 - Jul 2026)_
+**Quantum Leap** · _Setúbal, Portugal_<br>
+_Data Scientist & AI Engineer_ · _(Dec 2023 - Jul 2026)_
 
 **Stack:** Python, C/C++, DeepStream, TensorRT, CUDA, NVIDIA Jetson Orin AGX, Ultralytics, DETR, RT-DETR, RF-DETR, Ansible, GitHub Actions, Docker, Prometheus, Grafana, vLLM, Ollama, LangChain, Qdrant
 
@@ -30,8 +28,8 @@ _Data Scientist & AI Engineer_ | _(Dec 2023 - Jul 2026)_
 - Automated fleet deployment and CI/CD across 15 edge devices serving 120 cameras in ~10 stores, scalable to 1000+
 - Curated an in-house dataset with semi-automated labeling and built stream-processing backends
 
-**MAQ Software** | _Noida, India_<br>
-_Software Engineer 1_ | _(Dec 2022 - Dec 2023)_
+**MAQ Software** · _Noida, India_<br>
+_Software Engineer 1_ · _(Dec 2022 - Dec 2023)_
 
 **Stack:** Python, NumPy, Pandas, Azure Functions, Azure Web App, Azure Cognitive Search, Azure Blob Storage, Azure SQL, Azure Speech, GPT-3.5, GPT-4, Llama 2
 
@@ -40,28 +38,28 @@ _Software Engineer 1_ | _(Dec 2022 - Dec 2023)_
 - Deployed production cloud solutions across serverless functions, web apps, cognitive search, blob storage and SQL
 - Implemented a high-impact recommendation system serving ~1M users
 
-**Tata Consultancy Services (TCS)** | _Noida, India_<br>
-_System Engineer_ | _(Aug 2021 - Dec 2022)_
+**Tata Consultancy Services (TCS)** · _Noida, India_<br>
+_System Engineer_ · _(Aug 2021 - Dec 2022)_
 
 **Stack:** Python, MySQL, T-SQL, PowerBI
 
 - Delivered data analysis and data science projects across multiple client engagements
 - Built and maintained backend services for robust, scalable applications
 
-**VerSe Innovation** | _Bengaluru, India_<br>
-_[Data Science Intern (Internship)](https://drive.google.com/file/d/1nJ8vXmALlt--85MqqDsExyLhBGVUJEuy/view?usp=sharing)_ | _(Jul 2021 - Aug 2021)_
+**VerSe Innovation** · _Bengaluru, India_<br>
+_[Data Science Intern (Internship)](https://drive.google.com/file/d/1nJ8vXmALlt--85MqqDsExyLhBGVUJEuy/view?usp=sharing)_ · _(Jul 2021 - Aug 2021)_
 
 **Stack:** PyTorch, OpenCV
 
 - Developed image and video classification models over large-scale media content
 
-**CETPA InfoTech Pvt. Ltd.** | _Noida, India_<br>
-_[AI Trainer (Internship)](https://drive.google.com/file/d/1WbFtlmQf4tBE1oLfCD2rgwM5YAAHLfI0/view?usp=sharing)_ | _(Jan 2020 - Feb 2020)_
+**CETPA InfoTech Pvt. Ltd.** · _Noida, India_<br>
+_[AI Trainer (Internship)](https://drive.google.com/file/d/1WbFtlmQf4tBE1oLfCD2rgwM5YAAHLfI0/view?usp=sharing)_ · _(Jan 2020 - Feb 2020)_
 
 - Taught artificial intelligence, machine learning and deep learning topics to 3rd- and 4th-year engineering students
 
-**CETPA InfoTech Pvt. Ltd.** | _Noida, India_<br>
-_[Machine Learning & Deep Learning Intern (Internship)](https://drive.google.com/file/d/1diEasm0fFvI3mKhzQgii_QFMQ1rydur9/view?usp=sharing)_ | _(Jun 2019 - Jul 2019)_
+**CETPA InfoTech Pvt. Ltd.** · _Noida, India_<br>
+_[Machine Learning & Deep Learning Intern (Internship)](https://drive.google.com/file/d/1diEasm0fFvI3mKhzQgii_QFMQ1rydur9/view?usp=sharing)_ · _(Jun 2019 - Jul 2019)_
 
 **Stack:** NLTK, scikit-learn
 
@@ -121,10 +119,8 @@ Bachelor of Technology, CSE _from_ Shaheed Bhagat Singh State Technical Campus (
 
 ## 📈 STATS
 
-[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=ashuguptahere&show_icons=true&hide_border=true&count_private=true)](http://www.github.com/ashuguptahere)
-[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=ashuguptahere&layout=compact&hide_border=true&langs_count=10)](http://www.github.com/ashuguptahere)
-[![GitHub Streak](https://streak-stats.demolab.com?user=ashuguptahere&hide_border=true)](http://www.github.com/ashuguptahere)
 [![LeetCode Stats](https://leetcard.jacoblin.cool/ashuguptahere?ext=heatmap)](https://leetcode.com/u/ashuguptahere/)
+[![GitHub](https://img.shields.io/badge/GitHub-View%20Profile-181717?style=for-the-badge&logo=github&logoColor=white)](http://www.github.com/ashuguptahere)
 [![Codolio](https://img.shields.io/badge/Codolio-View%20Profile-1f2937?style=for-the-badge)](https://codolio.com/profile/ashuguptahere)
 [![GeeksforGeeks](https://img.shields.io/badge/GeeksforGeeks-View%20Profile-2f8d46?style=for-the-badge&logo=geeksforgeeks&logoColor=white)](https://www.geeksforgeeks.org/profile/ashuguptahere/)
 [![Kaggle](https://img.shields.io/badge/Kaggle-View%20Profile-20beff?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/ashuguptahere)

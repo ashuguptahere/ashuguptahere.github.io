@@ -66,22 +66,16 @@ def url_username(url: str) -> str:
 
 
 def build_stats_cards(links: list[dict]) -> list[str]:
-    """Profile stat cards/badges for GitHub, LeetCode, Codolio, GfG and Kaggle."""
+    """
+    Profile stat cards/badges.
+
+    github-readme-stats.vercel.app (503) and streak-stats.demolab.com
+    (unreachable) are deliberately not used: both are free-tier community
+    services that rate-limit and go down, and a dead card renders as a broken
+    image on the live site. Only endpoints that actually respond are used.
+    """
     by_label = links_by_label(links)
     cards = []
-
-    github = by_label.get("github")
-    if github:
-        user = url_username(github)
-        cards.append(
-            f"[![GitHub Stats](https://github-readme-stats.vercel.app/api?username={user}&show_icons=true&hide_border=true&count_private=true)]({github})"
-        )
-        cards.append(
-            f"[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username={user}&layout=compact&hide_border=true&langs_count=10)]({github})"
-        )
-        cards.append(
-            f"[![GitHub Streak](https://streak-stats.demolab.com?user={user}&hide_border=true)]({github})"
-        )
 
     leetcode = by_label.get("leetcode")
     if leetcode:
@@ -90,6 +84,7 @@ def build_stats_cards(links: list[dict]) -> list[str]:
         )
 
     static = [
+        ("github", "GitHub", "181717", "github"),
         ("codolio", "Codolio", "1f2937", None),
         ("gfg", "GeeksforGeeks", "2f8d46", "geeksforgeeks"),
         ("kaggle", "Kaggle", "20beff", "kaggle"),
@@ -249,7 +244,7 @@ def main() -> int:
     # Header (keeps same variables as resume)
     name = str(basics.get("name", "")).strip() or "Resume"
     profile = str(basics.get("headline", "")).strip() or "Resume"
-    titles = str(basics.get("titles", "")).strip()
+    _titles = str(basics.get("titles", "")).strip()
     email = str(basics.get("email", "")).strip()
     location = str(basics.get("location", "")).strip()
     work_auth = str(basics.get("work_authorization", "")).strip()
@@ -257,36 +252,37 @@ def main() -> int:
     links = basics.get("links", []) or []
 
     # The name is the H1: it is the page title on GitHub Pages and the first
-    # thing a reader (or a search engine) sees. The headline goes beneath it.
+    # thing a reader (or a search engine) sees. Everything else in the header
+    # is kept to two compact lines so the page opens on content, not on a wall
+    # of metadata.
     md: list[str] = []
     md.append(f"# {name}")
     md.append("")
 
+    # `titles` is ATS title-matching padding for the PDF; next to the headline
+    # it just repeats "Data Scientist", so the site shows the headline only.
     if profile:
-        md.append(f"## {profile}")
-        md.append("")
-
-    if titles:
-        md.append(f"**{titles}**")
+        md.append(f"### {profile}")
         md.append("")
 
     where = [b for b in (location, work_auth) if b]
     if where:
-        md.append(" • ".join(f"**{b}**" for b in where))
+        md.append(" · ".join(where))
         md.append("")
 
-    # Show the URL itself as link text, matching the PDF: ATS parsers read the
-    # text layer and rarely follow link annotations.
+    # Short labels here, unlike the PDF. The website is read by humans; only
+    # the PDF needs the URL spelled out for ATS text extraction, and eight full
+    # URLs on one line render as an unreadable wall.
     header_bits = []
     if email:
         header_bits.append(md_link(email, f"mailto:{email}"))
     for l in links:
         url = str(l.get("url", "")).strip()
-        shown = str(l.get("display", "") or l.get("label", "")).strip()
+        shown = str(l.get("label", "") or l.get("display", "")).strip()
         if shown and url:
             header_bits.append(md_link(shown, url))
     if header_bits:
-        md.append(" • ".join(header_bits))
+        md.append(" · ".join(header_bits))
         md.append("")
 
     if resume_pdf:
@@ -310,8 +306,11 @@ def main() -> int:
         loc = str(job.get("location", "")).strip()
 
         role_display = md_link(role, role_url) if role_url else role
-        md.append(f"**{company}** | _{loc}_<br>")
-        md.append(f"_{role_display}_ | _({dates})_")
+        # Never use "|" as a separator: kramdown (GitHub Pages' Markdown
+        # engine) parses any line containing pipes as a table, which turned
+        # every job entry into a bordered 2-column table on the site.
+        md.append(f"**{company}** · _{loc}_<br>")
+        md.append(f"_{role_display}_ · _({dates})_")
 
         stack = join_comma(job.get("stack", []) or [])
         if stack:
