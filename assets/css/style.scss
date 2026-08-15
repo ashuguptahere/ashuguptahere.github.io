@@ -5,6 +5,13 @@
 
 @import "{{ site.theme }}";
 
+// The theme sets body text to #727272, and bold inherits it, so emphasis was
+// barely distinguishable from ordinary text. Darken it in light mode.
+strong, b {
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
 // jekyll-theme-minimal ships light-only. Follow the reader's system setting
 // instead of forcing a white page at night.
 @media (prefers-color-scheme: dark) {
@@ -14,7 +21,8 @@
   }
 
   header h1,
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, h6,
+  strong, b {
     color: #f0f6fc;
   }
 

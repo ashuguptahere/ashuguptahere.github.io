@@ -19,6 +19,9 @@ basics:
   work_authorization: 'Portugal Temporary Residence Permit - work authorized'
   email: 'ashuguptahere@gmail.com'
   resume_pdf: 'Resume_Aashish_Gupta_AI_Engineer_Data_Scientist.pdf'
+  # This repository. The contribution snake is generated here by
+  # .github/workflows/snake.yml and served from its `output` branch.
+  repo: 'ashuguptahere/ashuguptahere.github.io'
   links:
     - label: 'LinkedIn'
       display: 'linkedin.com/in/ashuguptahere'

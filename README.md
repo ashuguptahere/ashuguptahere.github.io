@@ -117,17 +117,13 @@ Bachelor of Technology, CSE _from_ Shaheed Bhagat Singh State Technical Campus (
 
 ## 📈 STATS
 
+<a href="https://github.com/ashuguptahere/ashuguptahere.github.io"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ashuguptahere/ashuguptahere.github.io/output/github-contribution-grid-snake-dark.svg"><img alt="Contribution snake" src="https://raw.githubusercontent.com/ashuguptahere/ashuguptahere.github.io/output/github-contribution-grid-snake.svg"></picture></a>
+
 <a href="http://www.github.com/ashuguptahere"><picture><source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api?username=ashuguptahere&show_icons=true&hide_border=true&bg_color=00000000&title_color=ffffff&text_color=ffffff&icon_color=ffffff"><img alt="GitHub Stats" src="https://github-stats-extended.vercel.app/api?username=ashuguptahere&show_icons=true&hide_border=true&bg_color=00000000&title_color=000000&text_color=000000&icon_color=000000"></picture></a>
 
 <a href="http://www.github.com/ashuguptahere"><picture><source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api/top-langs?username=ashuguptahere&layout=compact&hide_border=true&langs_count=10&bg_color=00000000&title_color=ffffff&text_color=ffffff&icon_color=ffffff"><img alt="Top Languages" src="https://github-stats-extended.vercel.app/api/top-langs?username=ashuguptahere&layout=compact&hide_border=true&langs_count=10&bg_color=00000000&title_color=000000&text_color=000000&icon_color=000000"></picture></a>
 
-<a href="https://github.com/ashuguptahere/ashuguptahere"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ashuguptahere/ashuguptahere/output/github-contribution-grid-snake-dark.svg"><img alt="Contribution snake" src="https://raw.githubusercontent.com/ashuguptahere/ashuguptahere/output/github-contribution-grid-snake.svg"></picture></a>
-
 <a href="https://leetcode.com/u/ashuguptahere/"><img alt="LeetCode Stats" src="https://leetcard.jacoblin.cool/ashuguptahere?ext=heatmap"></a>
-
-## 📬 SOCIALS
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/ashuguptahere) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/hey_its_ashu) [![GitHub](https://img.shields.io/badge/GitHub-100000?logo=github&logoColor=white)](http://www.github.com/ashuguptahere)
 
 ---
 
