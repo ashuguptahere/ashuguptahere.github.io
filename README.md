@@ -123,7 +123,7 @@ Bachelor of Technology, CSE _from_ Shaheed Bhagat Singh State Technical Campus (
 
 <a href="https://github.com/ashuguptahere/ashuguptahere"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ashuguptahere/ashuguptahere/output/github-contribution-grid-snake-dark.svg"><img alt="Contribution snake" src="https://raw.githubusercontent.com/ashuguptahere/ashuguptahere/output/github-contribution-grid-snake.svg"></picture></a>
 
-<a href="https://leetcode.com/u/ashuguptahere/"><picture><source media="(prefers-color-scheme: dark)" srcset="https://leetcard.jacoblin.cool/ashuguptahere?ext=heatmap&theme=dark"><img alt="LeetCode Stats" src="https://leetcard.jacoblin.cool/ashuguptahere?ext=heatmap&theme=light"></picture></a>
+<a href="https://leetcode.com/u/ashuguptahere/"><img alt="LeetCode Stats" src="https://leetcard.jacoblin.cool/ashuguptahere?ext=heatmap"></a>
 
 ## 📬 SOCIALS
 

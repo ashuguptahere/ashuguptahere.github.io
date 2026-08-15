@@ -127,8 +127,12 @@ def build_stats_cards(links: list[dict]) -> list[str]:
 
     leetcode = by_label.get("leetcode")
     if leetcode:
-        card = f"https://leetcard.jacoblin.cool/{url_username(leetcode)}?ext=heatmap&theme="
-        cards.append(themed("LeetCode Stats", f"{card}light", f"{card}dark", leetcode))
+        # No theme parameter on purpose. Left alone, leetcard embeds its own
+        # prefers-color-scheme rules (#fff / #101010) and follows the reader's
+        # system setting. Passing theme=light or theme=dark strips those rules
+        # and pins one palette, which is what left the card stuck on dark.
+        card = f"https://leetcard.jacoblin.cool/{url_username(leetcode)}?ext=heatmap"
+        cards.append(f'<a href="{leetcode}"><img alt="LeetCode Stats" src="{card}"></a>')
 
     return cards
 
