@@ -25,7 +25,7 @@ _Data Scientist & AI Engineer_ · _(Dec 2023 - Jul 2026)_
 - Led fully localized, on-premise LLM deployments (Llama-3 70B, Qwen-2.5/3/3.5) for scene summarization
 - Applied RAG and LoRA/QLoRA fine-tuning to ship a law-firm document intelligence product
 - Built a conversational chat interface with semantic search over vast PDF and text repositories
-- Automated fleet deployment and CI/CD across 15 edge devices serving 120 cameras in ~10 stores, scalable to 1000+
+- Automated fleet deployment and CI/CD across 15 edge devices serving 120 cameras in ∼10 stores, scalable to 1000+
 - Curated an in-house dataset with semi-automated labeling and built stream-processing backends
 
 **MAQ Software** · _Noida, India_<br>
@@ -34,9 +34,9 @@ _Software Engineer 1_ · _(Dec 2022 - Dec 2023)_
 **Stack:** Python, NumPy, Pandas, Azure Functions, Azure Web App, Azure Cognitive Search, Azure Blob Storage, Azure SQL, Azure Speech, GPT-3.5, GPT-4, Llama 2
 
 - Spearheaded Retrieval-Augmented Generation (RAG) initiatives with state-of-the-art LLMs for document retrieval
-- Cut a legacy pipeline runtime from **7 minutes to 2 seconds (~210x faster)** through vectorized refactoring
+- Cut a legacy pipeline runtime from **7 minutes to 2 seconds (≈210× faster)** through vectorized refactoring
 - Deployed production cloud solutions across serverless functions, web apps, cognitive search, blob storage and SQL
-- Implemented a high-impact recommendation system serving ~1M users
+- Implemented a high-impact recommendation system serving ∼1M users
 
 **Tata Consultancy Services (TCS)** · _Noida, India_<br>
 _System Engineer_ · _(Aug 2021 - Dec 2022)_

@@ -1,35 +1,60 @@
 # Resume Generator
 
 ## Overview
-A single `data.yaml` file drives both the LaTeX resume (`Resume_Aashish_Gupta_AI_Engineer_Data_Scientist.tex`) and an automatically generated Markdown version (`README.md`, which is also the GitHub Pages home page) via `yaml_to_md.py`.
+A single `data.yaml` file drives both outputs:
+
+| Output | Built by | Command |
+|---|---|---|
+| `Resume_Aashish_Gupta_AI_Engineer_Data_Scientist.pdf` | `resume.typ` (Typst) | `typst compile resume.typ Resume_Aashish_Gupta_AI_Engineer_Data_Scientist.pdf` |
+| `README.md` (also the GitHub Pages home page) | `yaml_to_md.py` | `uv run yaml_to_md.py data.yaml README.md` |
+
+Edit `data.yaml`, then re-run both.
 
 ## Prerequisites
-- Python 3.14 (tested)
-- Optional: a virtual environment tool such as `uv`
-- To export PDF: a LaTeX distribution (TeX Live, MikTeX, etc.) that provides `lualatex`
+- [Typst](https://github.com/typst/typst) — a single binary; no TeX distribution required
+- Python 3.14 (tested), plus `uv` for the Markdown generator
 
 ## Environment Setup
 ```bash
 uv sync
 ```
 
-## Generate the Markdown Resume
-```bash
-uv run yaml_to_md.py data.yaml README.md
-```
-- The first argument is the YAML source (defaults to `data.yaml`).
-- The second argument is the Markdown destination (defaults to `README.md`).
-- The script prints `Wrote README.md from data.yaml` upon success and overwrites the target file each run.
-- `README.md` is what GitHub Pages renders as the site home page, so regenerate it after every `data.yaml` edit.
+## Markup in `data.yaml`
+Prose fields — `bullets`, `tail`, `line`, and `items` under `achievements` and
+`leadership` — hold **Typst markup**:
 
-## Update the LaTeX/PDF Resume
-1. Edit `data.yaml` and re-run `yaml_to_md.py` if you also want the Markdown copy refreshed.
-2. Compile the LaTeX resume to PDF:
+| Markup | Renders as |
+|---|---|
+| `*text*` | bold |
+| `_text_` | italic |
+| `#link("url")[text]` | hyperlink |
+| `#h(1fr)` | push the rest of the line to the right margin |
+
+`yaml_to_md.py` translates the same markup into Markdown, so both outputs stay
+in sync from one source. Every other field is plain text and is inserted
+verbatim, which keeps characters like `#` (C#) and `&` from being parsed as
+markup.
+
+## Conventions worth keeping
+- **Name a tool once**, in its role's `stack:` list, not again in the bullets.
+  `yaml_to_md.py` warns about any keyword repeated across bullets and about any
+  `stack:` entry missing from the skills inventory.
+- **Never put `|` in generated Markdown.** GitHub Pages uses kramdown, which
+  turns any line containing a pipe into a table.
+- **Hyphenated terms go through `nobreak()`** in `resume.typ`. A line break
+  inside `RF-DETR` makes PDF text extraction emit `RFDETR`, which no ATS will
+  match.
+
+## Checking the PDF the way an ATS sees it
 ```bash
-lualatex "Resume_Aashish_Gupta_AI_Engineer_Data_Scientist.tex"
+pdftotext Resume_Aashish_Gupta_AI_Engineer_Data_Scientist.pdf - | less
 ```
-Run `lualatex` twice if you need cross-references to settle. The resulting PDF (`Resume_Aashish_Gupta_AI_Engineer_Data_Scientist.pdf`) will be regenerated in the project root.
+Profile URLs should appear as text (not only as clickable annotations), and
+hyphenated model names should survive intact.
 
 ## Troubleshooting
-- Ensure the YAML file remains valid; run `python -m yaml data.yaml` or `python - <<'PY'` snippet to quickly validate if needed.
-- Delete `.aux`, `.log`, and other LaTeX artifacts before recompiling if `lualatex` reports stale references.
+- Typst reports the file and line for syntax errors; `typst compile --watch`
+  rebuilds on save.
+- If a prose field fails to evaluate, look for a stray `#` or `@` — both start
+  code in Typst markup.
+- Validate the YAML with `python3 -c "import yaml;yaml.safe_load(open('data.yaml'))"`.

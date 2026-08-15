@@ -2,9 +2,9 @@
 """
 yaml_to_md.py
 
-Generate a Markdown resume from the SAME data.yaml used by the LaTeX resume.
+Generate a Markdown resume from the SAME data.yaml used by resume.typ.
 
-Section order (matches resume.tex):
+Section order (matches resume.typ):
   summary
   experience (internships merged in)
   education
@@ -35,15 +35,15 @@ from urllib.parse import quote, urlparse
 
 import yaml
 
-# --- Minimal LaTeX-ish -> Markdown normalization (keep content "in sync") ---
+# --- Typst markup -> Markdown (data.yaml prose is Typst; see resume.typ) ---
 
-RE_HREF = re.compile(r"""\\href\s*{\s*([^}]+?)\s*}\s*{\s*([^}]+?)\s*}""")
-RE_TEXTBF = re.compile(r"""\\textbf\s*{\s*([^}]+?)\s*}""")
-RE_IT = re.compile(r"""{\s*\\it\s+([^}]+)\s*}""")
-RE_SIM_DOLLAR = re.compile(r"""\$\\sim\$""")
-RE_SIM_BRACE = re.compile(r"""\$\\\{\\sim\\\}\$""")
-RE_APPROX = re.compile(r"""\$\\approx\s""")
-RE_TIMES = re.compile(r"""\\times\s*\$""")
+# #link("url")[text] -> [text](url)
+RE_LINK = re.compile(r"""#link\(\s*"([^"]+)"\s*\)\[([^\]]*)\]""")
+# Typst *bold* -> Markdown **bold**. Typst has no single-* italic, so every
+# *...* is bold.
+RE_BOLD = re.compile(r"""\*([^*\n]+)\*""")
+# #h(1fr) is "push to the right margin"; Markdown has no equivalent.
+RE_HFILL = re.compile(r"""#h\(\s*1fr\s*\)""")
 
 # Keywords shorter than this are too collision-prone to lint (AI, ML, DL, uv).
 MIN_LINT_LEN = 5
@@ -128,43 +128,19 @@ def build_social_badges(links: list[dict]) -> str:
     return " ".join(badges)
 
 
-def latexish_to_md(s: str) -> str:
+def typst_to_md(s: str) -> str:
     """
-    Keep strings as close as possible to YAML/LaTeX (sync),
-    only converting a few constructs so Markdown is readable.
+    Translate the Typst markup stored in data.yaml into Markdown, so both the
+    PDF and this README render from one source.
     """
     if s is None:
         return ""
     s = str(s)
 
-    # \href{url}{text} -> [text](url)
-    s = RE_HREF.sub(lambda m: f"[{m.group(2)}]({m.group(1)})", s)
-
-    # \textbf{X} -> **X**
-    s = RE_TEXTBF.sub(lambda m: f"**{m.group(1)}**", s)
-
-    # {\it from} -> _from_
-    s = RE_IT.sub(lambda m: f"_{m.group(1)}_", s)
-
-    # Common TeX escapes -> literal
-    s = (
-        s.replace(r"\&", "&")
-        .replace(r"\%", "%")
-        .replace(r"\_", "_")
-        .replace(r"\#", "#")
-    )
-
-    # Layout-only TeX
-    s = s.replace(r"\hfill", " — ")
-
-    # LaTeX math symbols -> Markdown equivalent
-    s = RE_SIM_DOLLAR.sub("~", s)
-    s = RE_SIM_BRACE.sub("~", s)
-    s = RE_APPROX.sub("~", s)
-    s = RE_TIMES.sub("x", s)
-
-    # Drop braces used only for grouping (keeps content synced)
-    s = s.replace("{", "").replace("}", "")
+    # Links first: their [text] must not be mistaken for anything else.
+    s = RE_LINK.sub(lambda m: f"[{m.group(2)}]({m.group(1)})", s)
+    s = RE_BOLD.sub(lambda m: f"**{m.group(1)}**", s)
+    s = RE_HFILL.sub(" — ", s)
 
     # Normalize whitespace
     s = re.sub(r"[ \t]+", " ", s).strip()
@@ -205,10 +181,10 @@ def lint_repetition(data: dict) -> list[str]:
 
     bullets: list[str] = []
     for job in data.get("experience", []) or []:
-        bullets.extend(str(b) for b in (job.get("bullets_latex", []) or []))
+        bullets.extend(str(b) for b in (job.get("bullets", []) or []))
     for key in ("leadership", "achievements"):
         bullets.extend(
-            str(b) for b in ((data.get(key, {}) or {}).get("items_latex", []) or [])
+            str(b) for b in ((data.get(key, {}) or {}).get("items", []) or [])
         )
 
     stack_terms = {
@@ -318,15 +294,15 @@ def main() -> int:
             md.append(f"**Stack:** {stack}")
         md.append("")
 
-        for b in job.get("bullets_latex", []) or []:
-            md.append(f"- {latexish_to_md(b)}")
+        for b in job.get("bullets", []) or []:
+            md.append(f"- {typst_to_md(b)}")
         md.append("")
 
     # 3) education
     section(md, "🎓 EDUCATION")
-    ed_line = ((data.get("education", {}) or {}).get("line_latex", "") or "").strip()
+    ed_line = ((data.get("education", {}) or {}).get("line", "") or "").strip()
     if ed_line:
-        md.append(latexish_to_md(ed_line))
+        md.append(typst_to_md(ed_line))
     md.append("")
 
     # 4) skills
@@ -345,23 +321,23 @@ def main() -> int:
     for p in data.get("projects", []) or []:
         pname = str(p.get("name", "")).strip()
         url = str(p.get("url", "")).strip()
-        tail = str(p.get("tail_latex", "") or "").strip()
+        tail = str(p.get("tail", "") or "").strip()
 
         head = f"**{md_link(pname, url)}**" if (pname or url) else "**Project**"
-        line = head + ((" " + latexish_to_md(tail)) if tail else "")
+        line = head + ((" " + typst_to_md(tail)) if tail else "")
         md.append(f"- {line}")
     md.append("")
 
     # 6) achievements
     section(md, "🏆 ACHIEVEMENTS")
-    for a in (data.get("achievements", {}) or {}).get("items_latex", []) or []:
-        md.append(f"- {latexish_to_md(a)}")
+    for a in (data.get("achievements", {}) or {}).get("items", []) or []:
+        md.append(f"- {typst_to_md(a)}")
     md.append("")
 
     # 7) leadership & activities
     section(md, "🤝 LEADERSHIP & ACTIVITIES")
-    for x in (data.get("leadership", {}) or {}).get("items_latex", []) or []:
-        md.append(f"- {latexish_to_md(x)}")
+    for x in (data.get("leadership", {}) or {}).get("items", []) or []:
+        md.append(f"- {typst_to_md(x)}")
     md.append("")
 
     # 8) certifications
