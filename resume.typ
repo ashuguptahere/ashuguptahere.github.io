@@ -18,6 +18,8 @@
 #set document(
   title: basics.name + " - " + basics.headline,
   author: basics.name,
+  // Maps to the PDF Subject field.
+  description: basics.headline + " - " + basics.titles,
   keywords: data.skills.map(s => s.items).flatten(),
   // Omit the build timestamp so the PDF is byte-reproducible and a rebuild
   // with no content change leaves the working tree clean.

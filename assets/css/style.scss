@@ -1,0 +1,77 @@
+---
+# Front matter (even empty) is required: it tells Jekyll to process this file
+# through Sass rather than copying it verbatim.
+---
+
+@import "{{ site.theme }}";
+
+// jekyll-theme-minimal ships light-only. Follow the reader's system setting
+// instead of forcing a white page at night.
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0d1117;
+    color: #c9d1d9;
+  }
+
+  header h1,
+  h1, h2, h3, h4, h5, h6 {
+    color: #f0f6fc;
+  }
+
+  header p,
+  small,
+  blockquote {
+    color: #8b949e;
+  }
+
+  a {
+    color: #58a6ff;
+
+    &:hover,
+    &:focus {
+      color: #79c0ff;
+    }
+  }
+
+  // The theme draws rules and table borders in near-black; invert them so the
+  // section headings stay legible.
+  hr,
+  header,
+  footer {
+    border-color: #30363d;
+  }
+
+  blockquote {
+    border-left-color: #30363d;
+  }
+
+  table th,
+  table td {
+    border-color: #30363d;
+  }
+
+  table th {
+    background-color: #161b22;
+  }
+
+  table tr:nth-child(even) th,
+  table tr:nth-child(even) td {
+    background-color: #161b22;
+  }
+
+  dt {
+    color: #f0f6fc;
+  }
+
+  code,
+  pre {
+    background-color: #161b22;
+    color: #c9d1d9;
+    border-color: #30363d;
+  }
+
+  // Round off the profile photo's white JPEG corners against a dark page.
+  header img {
+    border-radius: 6px;
+  }
+}

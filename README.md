@@ -117,13 +117,13 @@ Bachelor of Technology, CSE _from_ Shaheed Bhagat Singh State Technical Campus (
 
 ## 📈 STATS
 
-[![GitHub Stats](https://github-stats-extended.vercel.app/api?username=ashuguptahere&show_icons=true&hide_border=true)](http://www.github.com/ashuguptahere)
-[![Top Languages](https://github-stats-extended.vercel.app/api/top-langs?username=ashuguptahere&layout=compact&hide_border=true&langs_count=10)](http://www.github.com/ashuguptahere)
-[![LeetCode Stats](https://leetcard.jacoblin.cool/ashuguptahere?ext=heatmap)](https://leetcode.com/u/ashuguptahere/)
-[![GitHub](https://img.shields.io/badge/GitHub-View%20Profile-181717?style=for-the-badge&logo=github&logoColor=white)](http://www.github.com/ashuguptahere)
-[![Codolio](https://img.shields.io/badge/Codolio-View%20Profile-1f2937?style=for-the-badge)](https://codolio.com/profile/ashuguptahere)
-[![GeeksforGeeks](https://img.shields.io/badge/GeeksforGeeks-View%20Profile-2f8d46?style=for-the-badge&logo=geeksforgeeks&logoColor=white)](https://www.geeksforgeeks.org/profile/ashuguptahere/)
-[![Kaggle](https://img.shields.io/badge/Kaggle-View%20Profile-20beff?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/ashuguptahere)
+<a href="http://www.github.com/ashuguptahere"><picture><source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api?username=ashuguptahere&show_icons=true&hide_border=true&bg_color=00000000&title_color=ffffff&text_color=ffffff&icon_color=ffffff"><img alt="GitHub Stats" src="https://github-stats-extended.vercel.app/api?username=ashuguptahere&show_icons=true&hide_border=true&bg_color=00000000&title_color=000000&text_color=000000&icon_color=000000"></picture></a>
+
+<a href="http://www.github.com/ashuguptahere"><picture><source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api/top-langs?username=ashuguptahere&layout=compact&hide_border=true&langs_count=10&bg_color=00000000&title_color=ffffff&text_color=ffffff&icon_color=ffffff"><img alt="Top Languages" src="https://github-stats-extended.vercel.app/api/top-langs?username=ashuguptahere&layout=compact&hide_border=true&langs_count=10&bg_color=00000000&title_color=000000&text_color=000000&icon_color=000000"></picture></a>
+
+<a href="https://github.com/ashuguptahere/ashuguptahere"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ashuguptahere/ashuguptahere/output/github-contribution-grid-snake-dark.svg"><img alt="Contribution snake" src="https://raw.githubusercontent.com/ashuguptahere/ashuguptahere/output/github-contribution-grid-snake.svg"></picture></a>
+
+<a href="https://leetcode.com/u/ashuguptahere/"><picture><source media="(prefers-color-scheme: dark)" srcset="https://leetcard.jacoblin.cool/ashuguptahere?ext=heatmap&theme=dark"><img alt="LeetCode Stats" src="https://leetcard.jacoblin.cool/ashuguptahere?ext=heatmap&theme=light"></picture></a>
 
 ## 📬 SOCIALS
 
