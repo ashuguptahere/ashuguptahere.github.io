@@ -132,18 +132,35 @@ def build_stats_cards(links: list[dict], repo: str = "") -> list[str]:
                 themed(alt, f"{stem}&{LIGHT_INK}", f"{stem}&{DARK_INK}", github)
             )
 
-    leetcode = by_label.get("leetcode")
-    if leetcode:
-        # No theme parameter on purpose. Left alone, leetcard embeds its own
-        # prefers-color-scheme rules (#fff / #101010) and follows the reader's
-        # system setting. Passing theme=light or theme=dark strips those rules
-        # and pins one palette, which is what left the card stuck on dark.
-        card = f"https://leetcard.jacoblin.cool/{url_username(leetcode)}?ext=heatmap"
+        # Trophies. The widely used github-profile-trophy.vercel.app answers
+        # 402 (Vercel quota exceeded); this mirror serves the same cards.
+        trophy = f"https://github-trophies.vercel.app/?username={user}&no-frame=true&column=4&margin-w=6&theme="
         cards.append(
-            f'<a href="{leetcode}"><img alt="LeetCode Stats" src="{card}"></a>'
+            themed("GitHub Trophies", f"{trophy}flat", f"{trophy}darkhub", github)
         )
 
+    leetcode = by_label.get("leetcode")
+    if leetcode:
+        # Explicit per-theme URLs rather than leetcard's self-switching card.
+        # The default embeds its own prefers-color-scheme rules, which a
+        # browser honours but GitHub's image pipeline does not - that is why
+        # the card was right on the site yet stayed dark in every README.
+        # <picture> is the mechanism GitHub documents, and works in both.
+        card = f"https://leetcard.jacoblin.cool/{url_username(leetcode)}?ext=heatmap&theme="
+        cards.append(themed("LeetCode Stats", f"{card}light", f"{card}dark", leetcode))
+
     return cards
+
+
+def build_quote() -> str:
+    """Random developer quote, following the reader's system colour scheme."""
+    q = "https://quotes-github-readme.vercel.app/api?type=horizontal&theme="
+    return (
+        "<picture>"
+        f'<source media="(prefers-color-scheme: dark)" srcset="{q}dark">'
+        f'<img alt="Random dev quote" src="{q}light">'
+        "</picture>"
+    )
 
 
 def typst_to_md(s: str) -> str:
@@ -372,6 +389,10 @@ def main() -> int:
         for card in stats:
             md.append(card)
             md.append("")
+
+    section(md, "✍️ RANDOM DEV QUOTE")
+    md.append(build_quote())
+    md.append("")
 
     # No SOCIALS section: the profile links live in the header at the top of
     # the page, and repeating them as badges at the bottom was the same set of

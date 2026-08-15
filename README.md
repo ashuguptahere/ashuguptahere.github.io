@@ -123,7 +123,13 @@ Bachelor of Technology, CSE _from_ Shaheed Bhagat Singh State Technical Campus (
 
 <a href="http://www.github.com/ashuguptahere"><picture><source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api/top-langs?username=ashuguptahere&layout=compact&hide_border=true&langs_count=10&bg_color=00000000&title_color=ffffff&text_color=ffffff&icon_color=ffffff"><img alt="Top Languages" src="https://github-stats-extended.vercel.app/api/top-langs?username=ashuguptahere&layout=compact&hide_border=true&langs_count=10&bg_color=00000000&title_color=000000&text_color=000000&icon_color=000000"></picture></a>
 
-<a href="https://leetcode.com/u/ashuguptahere/"><img alt="LeetCode Stats" src="https://leetcard.jacoblin.cool/ashuguptahere?ext=heatmap"></a>
+<a href="http://www.github.com/ashuguptahere"><picture><source media="(prefers-color-scheme: dark)" srcset="https://github-trophies.vercel.app/?username=ashuguptahere&no-frame=true&column=4&margin-w=6&theme=darkhub"><img alt="GitHub Trophies" src="https://github-trophies.vercel.app/?username=ashuguptahere&no-frame=true&column=4&margin-w=6&theme=flat"></picture></a>
+
+<a href="https://leetcode.com/u/ashuguptahere/"><picture><source media="(prefers-color-scheme: dark)" srcset="https://leetcard.jacoblin.cool/ashuguptahere?ext=heatmap&theme=dark"><img alt="LeetCode Stats" src="https://leetcard.jacoblin.cool/ashuguptahere?ext=heatmap&theme=light"></picture></a>
+
+## ✍️ RANDOM DEV QUOTE
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark"><img alt="Random dev quote" src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=light"></picture>
 
 ---
 
