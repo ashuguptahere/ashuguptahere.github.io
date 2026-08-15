@@ -1,0 +1,43 @@
+Copyright (c) 2026 Aashish Gupta. All Rights Reserved.
+
+This repository contains the personal resume, curriculum vitae, portfolio
+website and supporting source code of Aashish Gupta ("the Author"). It is
+published for the sole purpose of allowing prospective employers, clients and
+collaborators to view the Author's professional background.
+
+NO LICENSE IS GRANTED.
+
+No permission is granted to any person to use, copy, modify, merge, publish,
+distribute, sublicense, sell, host, republish or create derivative works from
+any part of this repository, in whole or in part, in any medium, without the
+prior express written permission of the Author.
+
+This restriction applies to, without limitation:
+
+  1. The résumé content and its source data (`data.yaml`), including all
+     biographical information, employment history, project descriptions and
+     other personal data.
+  2. The LaTeX sources, document class (`resume.cls`), build scripts
+     (`yaml_to_md.py`), configuration and generated documents (`.tex`, `.pdf`,
+     `.md`, `.html`).
+  3. All images and other assets, including `assets/profile.jpeg`.
+
+The Author's name, likeness, photograph, contact details and professional
+history may not be reproduced, redistributed or used to represent any person
+or entity other than the Author. Use of any part of this repository to create,
+train or fine-tune machine learning models, or to generate impersonating or
+misleading content, is expressly prohibited.
+
+Viewing this repository and its published website in a web browser, and
+downloading the résumé PDF for the purpose of evaluating the Author for an
+employment or contracting opportunity, are permitted.
+
+To request permission for any other use, contact ashuguptahere@gmail.com.
+
+THE SOFTWARE AND CONTENT ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+IN CONNECTION WITH THE SOFTWARE OR CONTENT OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE OR CONTENT.
