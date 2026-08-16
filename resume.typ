@@ -52,8 +52,8 @@
 
 #let section(title, body) = {
   // Keep a heading with the start of its body so it never strands at a page
-  // foot.
-  block(breakable: false, above: 8pt, below: 4pt)[
+  // foot. `above` is the gap from the previous section's last line.
+  block(breakable: false, above: 13pt, below: 4pt)[
     #text(weight: "bold", upper(title))
     #v(3pt, weak: true)
     #line(length: 100%, stroke: 0.4pt)
@@ -150,7 +150,9 @@
 
 #section("Achievements")[#bullets(data.achievements.items)]
 
-#section("Leadership & Activities")[#bullets(data.leadership.items)]
+#section("Leadership")[#bullets(data.leadership.items)]
+
+#section("Activities")[#bullets(data.activities.items)]
 
 // Single column: multi-column reading order is fragile under text extraction.
 #section("Certifications")[

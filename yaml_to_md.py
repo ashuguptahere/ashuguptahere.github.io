@@ -11,7 +11,8 @@ Section order (matches resume.typ):
   skills & interests
   projects
   achievements
-  leadership & activities
+  leadership
+  activities
   certifications
   stats
   socials
@@ -217,7 +218,7 @@ def lint_repetition(data: dict) -> list[str]:
     bullets: list[str] = []
     for job in data.get("experience", []) or []:
         bullets.extend(str(b) for b in (job.get("bullets", []) or []))
-    for key in ("leadership", "achievements"):
+    for key in ("leadership", "activities", "achievements"):
         bullets.extend(
             str(b) for b in ((data.get(key, {}) or {}).get("items", []) or [])
         )
@@ -367,9 +368,14 @@ def main() -> int:
         md.append(f"- {typst_to_md(a)}")
     md.append("")
 
-    # 7) leadership & activities
-    section(md, "🤝 LEADERSHIP & ACTIVITIES")
+    # 7) leadership
+    section(md, "🤝 LEADERSHIP")
     for x in (data.get("leadership", {}) or {}).get("items", []) or []:
+        md.append(f"- {typst_to_md(x)}")
+    md.append("")
+
+    section(md, "🎨 ACTIVITIES")
+    for x in (data.get("activities", {}) or {}).get("items", []) or []:
         md.append(f"- {typst_to_md(x)}")
     md.append("")
 

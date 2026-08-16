@@ -17,7 +17,7 @@ _Data Scientist & AI Engineer_ · _(Dec 2023 - Jul 2026)_
 
 **Stack:** Python, C/C++, DeepStream, TensorRT, CUDA, NVIDIA Jetson Orin AGX, Ultralytics, DETR, RT-DETR, RF-DETR, Ansible, GitHub Actions, Docker, Prometheus, Grafana, vLLM, Ollama, LangChain, Qdrant
 
-- Led computer vision for Human Activity Recognition, behavior analysis and anomaly detection in retail loss prevention
+- Owned end-to-end computer vision for Human Activity Recognition and anomaly detection in retail loss prevention
 - Cut inference latency **40%** on NVIDIA Jetson AGX by optimizing and quantizing models for edge deployment
 - Delivered a further **10-20x (1000-2000%)** throughput gain by porting Python inference to C++ DeepStream pipelines
 - Led fully localized, on-premise LLM deployments (Llama-3 70B, Qwen-2.5/3/3.5) for scene summarization
@@ -98,10 +98,13 @@ Bachelor of Technology, CSE _from_ Shaheed Bhagat Singh State Technical Campus (
 - [GATE 2021](https://drive.google.com/file/d/1ARz_BLLcELOdsD-tSp_IxuJ8UMXhP7_6/view?usp=share_link) cleared with Marks: 25.21 & GATE Score: 339
 - Solved [220+ DSA questions](https://codolio.com/profile/ashuguptahere) across competitive programming platforms
 
-## 🤝 LEADERSHIP & ACTIVITIES
+## 🤝 LEADERSHIP
 
 - Mentored junior AI Engineers and Data Scientists, enforcing production ML standards and code quality
 - Drove AI team growth through technical hiring, interview panels and onboarding of new engineers
+
+## 🎨 ACTIVITIES
+
 - E-Cell & NSS Member at SBSSTC, Ferozepur, Punjab
 - System Incharge/Technician for the WebCam Feeds, Election Commission of India
 - Examiner at Mayank Foundation for Painting Competition
