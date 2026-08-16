@@ -18,6 +18,12 @@ basics:
   location: 'Portugal'
   work_authorization: 'Portugal Temporary Residence Permit - work authorized'
   email: 'ashuguptahere@gmail.com'
+  # Optional and empty by default. Fill it in to put the number on the PDF you
+  # send a recruiter; leave it empty and no phone line is rendered at all.
+  # It is deliberately never rendered into README.md, so the number cannot
+  # reach the public site. Do not commit a real number: this repository is
+  # public, so anything committed here is readable in data.yaml regardless.
+  phone: ''
   resume_pdf: 'Resume_Aashish_Gupta_AI_Engineer_Data_Scientist.pdf'
   repo: 'ashuguptahere/ashuguptahere.github.io'
   links:

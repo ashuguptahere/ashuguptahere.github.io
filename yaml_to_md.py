@@ -265,6 +265,9 @@ def build_readme(data: dict) -> str:
     if where:
         md += [" · ".join(where), ""]
 
+    # basics["phone"] is deliberately not rendered here. It belongs on the PDF
+    # sent to a recruiter, not on a public web page.
+    #
     # Short labels, unlike the PDF. Only the PDF needs URLs spelled out for ATS
     # text extraction; eight full URLs on one line render as an unreadable wall.
     bits = []

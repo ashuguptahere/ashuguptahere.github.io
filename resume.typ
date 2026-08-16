@@ -143,7 +143,12 @@
   // follow link annotations, so "LinkedIn" would leave them with no URL.
   // Boxed so a URL is never split across lines mid-path.
   #{
-    let parts = (box(link("mailto:" + basics.email)[#basics.email]),)
+    let parts = ()
+    // Phone is optional: rendered only when data.yaml carries one, so an empty
+    // field leaves no stray separator behind.
+    let phone = basics.at("phone", default: "")
+    if phone != "" { parts.push(box(phone)) }
+    parts.push(box(link("mailto:" + basics.email)[#basics.email]))
     for l in basics.links {
       parts.push(box(link(l.url)[#l.at("display", default: l.label)]))
     }
