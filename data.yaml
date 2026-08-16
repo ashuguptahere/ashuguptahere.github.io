@@ -420,9 +420,3 @@ certifications:
   - name: 'ISOEH - Machine Learning'
     url: 'https://drive.google.com/file/d/1Pk-nYnK60L8UbcFB3BfSbxoZ3xy0Froh/view'
 
-# Presentation hint, not candidate data: these exact phrases are shown in
-# bold wherever they occur in an experience bullet.
-emphasize:
-  - '40%'
-  - '10-20x (1000-2000%)'
-  - '7 minutes to 2 seconds (≈210× faster)'

@@ -1,30 +1,14 @@
 #!/usr/bin/env python3
-"""
-yaml_to_md.py
+"""Render README.md from data.yaml, the same source resume.typ renders to PDF.
 
-Generate a Markdown resume from the SAME data.yaml used by resume.typ.
-
-Section order (matches resume.typ):
-  summary
-  experience (internships merged in)
-  education
-  skills & interests
-  projects
-  achievements
-  leadership
-  activities
-  certifications
-  stats
-  socials
+data.yaml holds candidate data only: plain values, no markup. Section order and
+section headings both come from its keys, so the two renderers cannot drift.
 
 Also lints for keyword repetition: a tool should be named once, in its role's
 `stack:`, not restated across bullets.
 
 Usage:
-  python3 yaml_to_md.py data.yaml README.md
-
-Dependency:
-  pip install pyyaml
+    python3 yaml_to_md.py [data.yaml] [README.md]
 """
 
 from __future__ import annotations
@@ -36,21 +20,37 @@ from urllib.parse import quote, urlparse
 
 import yaml
 
-# data.yaml is pure data: no markup to translate. Emphasis comes from its
-# `emphasize` list, applied here so the PDF and this README agree.
+# A keyword shorter than this is too collision-prone to lint (AI, ML, uv).
+MIN_LINT_LENGTH = 5
 
-# Keywords shorter than this are too collision-prone to lint (AI, ML, DL, uv).
-MIN_LINT_LEN = 5
+# Transparent background, monochrome ink: black in light mode, white in dark.
+INK_LIGHT = "bg_color=00000000&title_color=000000&text_color=000000&icon_color=000000"
+INK_DARK = "bg_color=00000000&title_color=ffffff&text_color=ffffff&icon_color=ffffff"
+
+STATS_API = "https://github-stats-extended.vercel.app/api"
+SNAKE_RAW = (
+    "https://raw.githubusercontent.com/{repo}/output/github-contribution-grid-snake"
+)
+# github-profile-trophy.vercel.app answers 402 (quota spent); this mirror
+# serves the same cards.
+TROPHY_API = "https://github-trophies.vercel.app/?username={user}&no-frame=true&column=4&margin-w=6&theme="
+# Explicit per-theme URLs. leetcard's default card embeds its own
+# prefers-color-scheme rules, which a browser honours but GitHub's image
+# pipeline does not, so the card stayed dark in every README.
+LEETCARD = "https://leetcard.jacoblin.cool/{user}?ext=heatmap&theme="
+QUOTE_API = "https://quotes-github-readme.vercel.app/api?type=horizontal&theme="
+
+
+# --------------------------------------------------------------------- helpers
 
 
 def links_by_label(links: list[dict]) -> dict[str, str]:
-    by_label = {}
-    for it in links or []:
-        label = str(it.get("label", "")).strip().lower()
-        url = str(it.get("url", "")).strip()
-        if label and url:
-            by_label[label] = url
-    return by_label
+    """Map a lowercased link label to its URL, e.g. {"github": "https://..."}."""
+    return {
+        str(it.get("label", "")).strip().lower(): str(it.get("url", "")).strip()
+        for it in links or []
+        if it.get("label") and it.get("url")
+    }
 
 
 def url_username(url: str) -> str:
@@ -59,16 +59,22 @@ def url_username(url: str) -> str:
     return parts[-1] if parts else ""
 
 
-# Transparent background, monochrome ink: black in light mode, white in dark.
-LIGHT_INK = "bg_color=00000000&title_color=000000&text_color=000000&icon_color=000000"
-DARK_INK = "bg_color=00000000&title_color=ffffff&text_color=ffffff&icon_color=ffffff"
+def md_link(text: str, url: str) -> str:
+    text = str(text or "").strip()
+    url = str(url or "").strip()
+    return f"[{text}]({url})" if text and url else (text or url)
+
+
+# ------------------------------------------------------------------ image cards
 
 
 def themed(alt: str, light: str, dark: str, href: str) -> str:
-    """
-    A <picture> that follows the reader's system theme. Plain Markdown cannot
-    do this, but kramdown passes raw HTML through and prefers-color-scheme is
-    handled by the browser, so it works on GitHub Pages and on github.com.
+    """An image that follows the reader's system theme.
+
+    Plain Markdown cannot express this. A <picture> can, because kramdown
+    passes raw HTML through and the browser resolves prefers-color-scheme.
+    It is also the only mechanism that works inside a GitHub README, which
+    loads no external stylesheet, so this cannot live in assets/css.
     """
     return (
         f'<a href="{href}">'
@@ -79,28 +85,21 @@ def themed(alt: str, light: str, dark: str, href: str) -> str:
     )
 
 
-def build_stats_cards(links: list[dict], repo: str = "") -> list[str]:
-    """
-    Profile stat cards, one per returned block so each renders on its own line.
-    Ordered by what a visitor looks at first: the contribution snake, then
-    activity, then languages, then competitive programming.
+def build_stats_cards(links: list[dict], repo: str) -> list[str]:
+    """Stats cards, ordered by what a visitor looks at first.
 
-    github-readme-stats.vercel.app is deliberately not used: it answers 503.
-    github-stats-extended.vercel.app is the drop-in replacement and serves a
-    real card. streak-stats.demolab.com is skipped as well - it answered 200
-    on one check and was unreachable on another, and a card that is down
-    renders as a broken image on the live site.
+    github-readme-stats.vercel.app is not used: it answers 503.
+    streak-stats.demolab.com is skipped too, having answered 200 on one check
+    and been unreachable on another; a card that is down renders as a broken
+    image on the live site.
     """
     by_label = links_by_label(links)
+    github = by_label.get("github", "")
+    leetcode = by_label.get("leetcode", "")
     cards = []
 
-    github = by_label.get("github")
-
-    # Contribution snake, generated by .github/workflows/snake.yml in this
-    # repository and published to its `output` branch in a light and a dark
-    # variant.
     if repo:
-        snake = f"https://raw.githubusercontent.com/{repo}/output/github-contribution-grid-snake"
+        snake = SNAKE_RAW.format(repo=repo)
         cards.append(
             themed(
                 "Contribution snake",
@@ -112,7 +111,6 @@ def build_stats_cards(links: list[dict], repo: str = "") -> list[str]:
 
     if github:
         user = url_username(github)
-        api = "https://github-stats-extended.vercel.app/api"
         for alt, path, extra in (
             ("GitHub Stats", "", "show_icons=true&hide_border=true"),
             (
@@ -121,26 +119,18 @@ def build_stats_cards(links: list[dict], repo: str = "") -> list[str]:
                 "layout=compact&hide_border=true&langs_count=10",
             ),
         ):
-            stem = f"{api}{path}?username={user}&{extra}"
+            stem = f"{STATS_API}{path}?username={user}&{extra}"
             cards.append(
-                themed(alt, f"{stem}&{LIGHT_INK}", f"{stem}&{DARK_INK}", github)
+                themed(alt, f"{stem}&{INK_LIGHT}", f"{stem}&{INK_DARK}", github)
             )
 
-        # Trophies. The widely used github-profile-trophy.vercel.app answers
-        # 402 (Vercel quota exceeded); this mirror serves the same cards.
-        trophy = f"https://github-trophies.vercel.app/?username={user}&no-frame=true&column=4&margin-w=6&theme="
+        trophy = TROPHY_API.format(user=user)
         cards.append(
             themed("GitHub Trophies", f"{trophy}flat", f"{trophy}darkhub", github)
         )
 
-    leetcode = by_label.get("leetcode")
     if leetcode:
-        # Explicit per-theme URLs rather than leetcard's self-switching card.
-        # The default embeds its own prefers-color-scheme rules, which a
-        # browser honours but GitHub's image pipeline does not - that is why
-        # the card was right on the site yet stayed dark in every README.
-        # <picture> is the mechanism GitHub documents, and works in both.
-        card = f"https://leetcard.jacoblin.cool/{url_username(leetcode)}?ext=heatmap&theme="
+        card = LEETCARD.format(user=url_username(leetcode))
         cards.append(themed("LeetCode Stats", f"{card}light", f"{card}dark", leetcode))
 
     return cards
@@ -148,81 +138,101 @@ def build_stats_cards(links: list[dict], repo: str = "") -> list[str]:
 
 def build_quote() -> str:
     """Random developer quote, following the reader's system colour scheme."""
-    q = "https://quotes-github-readme.vercel.app/api?type=horizontal&theme="
     return (
         "<picture>"
-        f'<source media="(prefers-color-scheme: dark)" srcset="{q}dark">'
-        f'<img alt="Random dev quote" src="{q}light">'
+        f'<source media="(prefers-color-scheme: dark)" srcset="{QUOTE_API}dark">'
+        f'<img alt="Random dev quote" src="{QUOTE_API}light">'
         "</picture>"
     )
 
 
-def stress(s: str, phrases: list[str]) -> str:
-    """Bold each `emphasize` phrase wherever it occurs."""
-    for ph in phrases or []:
-        if ph in s:
-            s = s.replace(ph, f"**{ph}**")
-    return s
+# --------------------------------------------------------------- section bodies
 
 
 def entry_line(e: dict) -> str:
-    """Render the shared name / url / detail / links shape."""
+    """Render data.yaml's shared name / url? / detail? / links? shape."""
     head = md_link(e["name"], e["url"]) if e.get("url") else e["name"]
     line = f"**{head}**"
     if e.get("detail"):
         line += f": {e['detail']}"
     if e.get("links"):
-        ls = ", ".join(md_link(l["name"], l["url"]) for l in e["links"])
-        line += f". {e.get('links_label', 'Links')}: {ls}"
+        joined = ", ".join(md_link(link["name"], link["url"]) for link in e["links"])
+        line += f". {e.get('links_label', 'Links')}: {joined}"
     return line
 
 
-def md_link(text: str, url: str) -> str:
-    text = str(text or "").strip()
-    url = str(url or "").strip()
-    return f"[{text}]({url})" if text and url else (text or url)
+def render_experience(jobs: list[dict]) -> list[str]:
+    """Internships are merged in, so their dated entries count toward tenure."""
+    out: list[str] = []
+    for job in jobs:
+        role = job.get("role", "")
+        if job.get("role_url"):
+            role = md_link(role, job["role_url"])
+        # Never use "|" as a separator: kramdown parses any line containing a
+        # pipe as a table, which turned every job entry into a bordered table.
+        out.append(f"**{job.get('company', '')}** · _{job.get('location', '')}_<br>")
+        out.append(f"_{role}_ · _({job.get('dates', '')})_")
+        if job.get("stack"):
+            out += ["", f"**Stack:** {', '.join(job['stack'])}"]
+        out.append("")
+        out += [f"- {b}" for b in job.get("bullets", []) or []]
+        out.append("")
+    return out
 
 
-def join_comma(items) -> str:
-    items = [str(x).strip() for x in (items or []) if str(x).strip()]
-    return ", ".join(items)
+def render(key: str, value) -> list[str]:
+    """One rendering rule per section key in data.yaml."""
+    if key == "summary":
+        return [value]
+    if key == "experience":
+        return render_experience(value)
+    if key == "education":
+        return [
+            f"**{e['degree']}** _from_ {e['institution']} — {e['dates']}<br>"
+            for e in value
+        ]
+    if key == "skills":
+        return [f"- **{s['category']}:** {', '.join(s['items'])}" for s in value]
+    if key in ("projects", "achievements", "certifications"):
+        return [f"- {entry_line(e)}" for e in value]
+    # leadership, activities, and any future list of plain statements.
+    return [f"- {x}" for x in value]
 
 
-def section(md: list[str], title: str) -> None:
-    md.append(f"## {title}")
-    md.append("")
+# --------------------------------------------------------------------- linting
 
 
 def lint_repetition(data: dict) -> list[str]:
-    """
-    A tool belongs in exactly one place: its role's `stack:`. Report keywords
+    """Report keyword drift.
+
+    A tool belongs in exactly one place: its role's `stack:`. Flag keywords
     restated across bullets, and stack entries missing from the skills
-    inventory (which means the SKILLS section has drifted).
+    inventory, which means the skills section has drifted.
     """
     warnings: list[str] = []
 
     inventory = {
         str(i).strip()
         for cat in data.get("skills", []) or []
-        for i in (cat.get("items", []) or [])
+        for i in cat.get("items", []) or []
         if str(i).strip()
     }
 
     bullets: list[str] = []
     for job in data.get("experience", []) or []:
-        bullets.extend(str(b) for b in (job.get("bullets", []) or []))
+        bullets += [str(b) for b in job.get("bullets", []) or []]
     for key in ("leadership", "activities"):
-        bullets.extend(str(b) for b in (data.get(key, []) or []))
+        bullets += [str(b) for b in data.get(key, []) or []]
 
     stack_terms = {
         str(s).strip()
         for job in data.get("experience", []) or []
-        for s in (job.get("stack", []) or [])
+        for s in job.get("stack", []) or []
         if str(s).strip()
     }
 
     for term in sorted(stack_terms | inventory):
-        if len(term) < MIN_LINT_LEN:
+        if len(term) < MIN_LINT_LENGTH:
             continue
         pattern = re.compile(rf"(?<![\w/]){re.escape(term)}(?![\w/])", re.IGNORECASE)
         hits = sum(1 for b in bullets if pattern.search(b))
@@ -237,167 +247,73 @@ def lint_repetition(data: dict) -> list[str]:
     return warnings
 
 
-def main() -> int:
-    in_path = Path(sys.argv[1] if len(sys.argv) > 1 else "data.yaml")
-    out_path = Path(sys.argv[2] if len(sys.argv) > 2 else "README.md")
+# ---------------------------------------------------------------------- output
 
-    data = yaml.safe_load(in_path.read_text(encoding="utf-8"))
+
+def build_readme(data: dict) -> str:
     basics = data.get("basics", {}) or {}
-    emphasize = data.get("emphasize", []) or []
-
-    # Header (keeps same variables as resume)
-    name = str(basics.get("name", "")).strip() or "Resume"
-    profile = str(basics.get("headline", "")).strip() or "Resume"
-    _titles = str(basics.get("titles", "")).strip()
-    email = str(basics.get("email", "")).strip()
-    location = str(basics.get("location", "")).strip()
-    work_auth = str(basics.get("work_authorization", "")).strip()
-    resume_pdf = str(basics.get("resume_pdf", "")).strip()
     links = basics.get("links", []) or []
-
-    # No name heading here. GitHub Pages renders this file inside a theme whose
-    # sidebar already prints `title` from _config.yml, so an H1 with the name
-    # showed it twice. The sidebar carries the name; the page opens on the role.
-    # (`name` is still used for the footer credit below.)
     md: list[str] = []
 
-    # `titles` is ATS title-matching padding for the PDF; next to the headline
-    # it just repeats "Data Scientist", so the site shows the headline only.
-    if profile:
-        md.append(f"# {profile}")
-        md.append("")
+    # No name heading: GitHub Pages renders this inside a theme whose sidebar
+    # already prints the name from _config.yml, so an H1 with the name showed
+    # it twice. `titles` is ATS padding for the PDF and only repeats the
+    # headline here, so it is left out too.
+    md += [f"# {basics.get('headline', '')}", ""]
 
-    where = [b for b in (location, work_auth) if b]
+    where = [b for b in (basics.get("location"), basics.get("work_authorization")) if b]
     if where:
-        md.append(" · ".join(where))
+        md += [" · ".join(where), ""]
+
+    # Short labels, unlike the PDF. Only the PDF needs URLs spelled out for ATS
+    # text extraction; eight full URLs on one line render as an unreadable wall.
+    bits = []
+    if basics.get("email"):
+        bits.append(md_link(basics["email"], f"mailto:{basics['email']}"))
+    bits += [
+        md_link(link.get("label") or link.get("display"), link["url"])
+        for link in links
+        if link.get("url")
+    ]
+    if bits:
+        md += [" · ".join(bits), ""]
+
+    if basics.get("resume_pdf"):
+        md += [f"📄 **[Download Resume (PDF)]({quote(basics['resume_pdf'])})**", ""]
+
+    for key, value in data.items():
+        if key == "basics":
+            continue
+        md += [f"## {key.upper()}", ""]
+        md += render(key, value)
         md.append("")
 
-    # Short labels here, unlike the PDF. The website is read by humans; only
-    # the PDF needs the URL spelled out for ATS text extraction, and eight full
-    # URLs on one line render as an unreadable wall.
-    header_bits = []
-    if email:
-        header_bits.append(md_link(email, f"mailto:{email}"))
-    for l in links:
-        url = str(l.get("url", "")).strip()
-        shown = str(l.get("label", "") or l.get("display", "")).strip()
-        if shown and url:
-            header_bits.append(md_link(shown, url))
-    if header_bits:
-        md.append(" · ".join(header_bits))
-        md.append("")
-
-    if resume_pdf:
-        md.append(f"📄 **[Download Resume (PDF)]({quote(resume_pdf)})**")
-        md.append("")
-
-    # 1) summary
-    summary = str(data.get("summary", "") or "").strip()
-    if summary:
-        section(md, "🎯 SUMMARY")
-        md.append(summary)
-        md.append("")
-
-    # 2) experience (internships merged in)
-    section(md, "💼 EXPERIENCE")
-    for job in data.get("experience", []) or []:
-        role = str(job.get("role", "")).strip()
-        role_url = str(job.get("role_url", "") or "").strip()
-        dates = str(job.get("dates", "")).strip()
-        company = str(job.get("company", "")).strip()
-        loc = str(job.get("location", "")).strip()
-
-        role_display = md_link(role, role_url) if role_url else role
-        # Never use "|" as a separator: kramdown (GitHub Pages' Markdown
-        # engine) parses any line containing pipes as a table, which turned
-        # every job entry into a bordered 2-column table on the site.
-        md.append(f"**{company}** · _{loc}_<br>")
-        md.append(f"_{role_display}_ · _({dates})_")
-
-        stack = join_comma(job.get("stack", []) or [])
-        if stack:
-            md.append("")
-            md.append(f"**Stack:** {stack}")
-        md.append("")
-
-        for b in job.get("bullets", []) or []:
-            md.append(f"- {stress(b, emphasize)}")
-        md.append("")
-
-    # 3) education
-    section(md, "🎓 EDUCATION")
-    for e in data.get("education", []) or []:
-        md.append(
-            f"**{e['degree']}** _from_ {e['institution']} — {e['dates']}<br>"
-        )
-    md.append("")
-
-    # 4) skills
-    section(md, "🛠️ SKILLS & INTERESTS")
-    for s in data.get("skills", []) or []:
-        cat = str(s.get("category", "")).strip()
-        items = join_comma(s.get("items", []) or [])
-        if cat and items:
-            md.append(f"- **{cat}:** {items}")
-        elif cat:
-            md.append(f"- **{cat}:**")
-    md.append("")
-
-    # 5) projects  |  6) achievements  - same name/url/detail/links shape
-    section(md, "📂 PROJECTS")
-    for p in data.get("projects", []) or []:
-        md.append(f"- {entry_line(p)}")
-    md.append("")
-
-    section(md, "🏆 ACHIEVEMENTS")
-    for a in data.get("achievements", []) or []:
-        md.append(f"- {entry_line(a)}")
-    md.append("")
-
-    # 7) leadership  |  activities - plain statements
-    section(md, "🤝 LEADERSHIP")
-    for x in data.get("leadership", []) or []:
-        md.append(f"- {x}")
-    md.append("")
-
-    section(md, "🎨 ACTIVITIES")
-    for x in data.get("activities", []) or []:
-        md.append(f"- {x}")
-    md.append("")
-
-    # 8) certifications
-    section(md, "📜 CERTIFICATIONS")
-    for c in data.get("certifications", []) or []:
-        md.append(f"- {entry_line(c)}")
-    md.append("")
-
-    stats = build_stats_cards(links, str(basics.get("repo", "") or "").strip())
-    if stats:
-        section(md, "📈 STATS")
+    cards = build_stats_cards(links, str(basics.get("repo", "") or ""))
+    if cards:
+        md += ["## STATS", ""]
         # Blank line between each: consecutive lines would collapse into one
         # paragraph and the cards would sit side by side.
-        for card in stats:
-            md.append(card)
-            md.append("")
+        for card in cards:
+            md += [card, ""]
 
-    section(md, "✍️ RANDOM DEV QUOTE")
-    md.append(build_quote())
-    md.append("")
+    md += ["## QUOTE", "", build_quote(), ""]
 
-    # No SOCIALS section: the profile links live in the header at the top of
-    # the page, and repeating them as badges at the bottom was the same set of
-    # destinations twice.
-    md.append("---")
-    md.append("")
+    # No socials section: the profile links are in the header at the top of the
+    # page, and repeating them as badges below was the same destinations twice.
+    github = links_by_label(links).get("github", "")
+    name = basics.get("name", "")
+    md += ["---", "", f"Made with ❤️ by {md_link(name, github) if github else name}"]
 
-    github_url = links_by_label(links).get("github", "")
+    return "\n".join(md).rstrip() + "\n"
 
-    if github_url:
-        md.append(f"Made with ❤️ by [{name}]({github_url})")
-    else:
-        md.append(f"Made with ❤️ by {name}")
 
-    out_path.write_text("\n".join(md).rstrip() + "\n", encoding="utf-8")
+def main() -> int:
+    argv = sys.argv[1:]
+    in_path = Path(argv[0] if argv else "data.yaml")
+    out_path = Path(argv[1] if len(argv) > 1 else "README.md")
+
+    data = yaml.safe_load(in_path.read_text(encoding="utf-8")) or {}
+    out_path.write_text(build_readme(data), encoding="utf-8")
     print(f"Wrote {out_path} from {in_path}")
 
     warnings = lint_repetition(data)

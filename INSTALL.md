@@ -1,7 +1,7 @@
 # Resume Generator
 
 ## Overview
-A single `data.yaml` file drives both outputs:
+`data.yaml` is the single source. Two renderers read it:
 
 | Output | Built by | Command |
 |---|---|---|
@@ -12,28 +12,28 @@ Edit `data.yaml`, then re-run both.
 
 ## Prerequisites
 - [Typst](https://github.com/typst/typst) — a single binary; no TeX distribution required
-- Python 3.14 (tested), plus `uv` for the Markdown generator
+- Python 3.14 (tested), plus `uv`
 
-## Environment Setup
 ```bash
 uv sync
 ```
 
-## Markup in `data.yaml`
-Prose fields — `bullets`, `tail`, `line`, and `items` under `achievements` and
-`leadership` — hold **Typst markup**:
+## How `data.yaml` is organised
+It holds **candidate data only** — plain values, no markup and no template
+syntax. Every string is inserted verbatim, so characters like `#` (C#) and `&`
+are always literal.
 
-| Markup | Renders as |
-|---|---|
-| `*text*` | bold |
-| `_text_` | italic |
-| `#link("url")[text]` | hyperlink |
-| `#h(1fr)` | push the rest of the line to the right margin |
+Section **order** and section **headings** both come from its top-level keys, so
+the PDF and the README can never disagree. Renaming a key renames the heading in
+both; adding a key needs one rendering rule in each renderer.
 
-`yaml_to_md.py` translates the same markup into Markdown, so both outputs stay
-in sync from one source. Every other field is plain text and is inserted
-verbatim, which keeps characters like `#` (C#) and `&` from being parsed as
-markup.
+Three shapes are reused across every section:
+
+| Shape | Fields | Used by |
+|---|---|---|
+| Linkable entry | `name`, `url`?, `detail`?, `links`? | projects, achievements, certifications |
+| Plain statement | a single string | experience bullets, leadership, activities |
+| Dated entry | organisation, location, role, dates | experience, education |
 
 ## Conventions worth keeping
 - **Name a tool once**, in its role's `stack:` list, not again in the bullets.
@@ -42,8 +42,9 @@ markup.
 - **Never put `|` in generated Markdown.** GitHub Pages uses kramdown, which
   turns any line containing a pipe into a table.
 - **Hyphenated terms go through `nobreak()`** in `resume.typ`. A line break
-  inside `RF-DETR` makes PDF text extraction emit `RFDETR`, which no ATS will
-  match.
+  inside `RF-DETR` makes PDF text extraction emit `RFDETR`, which no ATS matches.
+- **Run `uv run ruff check --select I --fix && uv run ruff format`** after
+  editing `yaml_to_md.py`.
 
 ## Checking the PDF the way an ATS sees it
 ```bash
@@ -52,9 +53,16 @@ pdftotext Resume_Aashish_Gupta_AI_Engineer_Data_Scientist.pdf - | less
 Profile URLs should appear as text (not only as clickable annotations), and
 hyphenated model names should survive intact.
 
+## Site and profile README
+- `assets/css/style.scss` overrides `jekyll-theme-minimal`, which ships
+  light-only, with a `prefers-color-scheme` dark palette.
+- `.github/workflows/snake.yml` generates the contribution snake here and
+  publishes it to the `output` branch.
+- The `ashuguptahere/ashuguptahere` profile repo mirrors this `README.md` every
+  6 hours; it builds nothing of its own.
+
 ## Troubleshooting
 - Typst reports the file and line for syntax errors; `typst compile --watch`
   rebuilds on save.
-- If a prose field fails to evaluate, look for a stray `#` or `@` — both start
-  code in Typst markup.
-- Validate the YAML with `python3 -c "import yaml;yaml.safe_load(open('data.yaml'))"`.
+- Validate the YAML with
+  `python3 -c "import yaml; yaml.safe_load(open('data.yaml'))"`.

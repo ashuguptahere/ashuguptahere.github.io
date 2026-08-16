@@ -6,11 +6,11 @@ Portugal · Portugal Temporary Residence Permit - work authorized
 
 📄 **[Download Resume (PDF)](Resume_Aashish_Gupta_AI_Engineer_Data_Scientist.pdf)**
 
-## 🎯 SUMMARY
+## SUMMARY
 
 Data Scientist and AI/ML Engineer with 5+ years of experience delivering production Computer Vision, GenAI/LLM and edge AI systems, spanning Machine Learning Engineer, Computer Vision Engineer and MLOps responsibilities. Seeking full-time Data Science, AI Engineering or Machine Learning Engineering roles.
 
-## 💼 EXPERIENCE
+## EXPERIENCE
 
 **Quantum Leap** · _Setúbal, Portugal_<br>
 _Data Scientist & AI Engineer_ · _(Dec 2023 - Jul 2026)_
@@ -18,8 +18,8 @@ _Data Scientist & AI Engineer_ · _(Dec 2023 - Jul 2026)_
 **Stack:** Python, C/C++, DeepStream, TensorRT, CUDA, NVIDIA Jetson Orin AGX, Ultralytics, DETR, RT-DETR, RF-DETR, Ansible, GitHub Actions, Docker, Prometheus, Grafana, vLLM, Ollama, LangChain, Qdrant
 
 - Owned end-to-end computer vision for Human Activity Recognition, behavior analysis and anomaly detection in retail loss prevention
-- Cut inference latency **40%** on NVIDIA Jetson AGX by optimizing and quantizing models for edge deployment
-- Delivered a further **10-20x (1000-2000%)** throughput gain by porting Python inference to C++ DeepStream pipelines
+- Cut inference latency 40% on NVIDIA Jetson AGX by optimizing and quantizing models for edge deployment
+- Delivered a further 10-20x (1000-2000%) throughput gain by porting Python inference to C++ DeepStream pipelines
 - Led fully localized, on-premise LLM deployments (Llama-3 70B, Qwen-2.5/3/3.5) for scene summarization
 - Applied RAG and LoRA/QLoRA fine-tuning to ship a law-firm document intelligence product
 - Built a conversational chat interface with semantic search over vast PDF and text repositories
@@ -32,7 +32,7 @@ _Software Engineer 1_ · _(Dec 2022 - Dec 2023)_
 **Stack:** Python, NumPy, Pandas, Azure Functions, Azure Web App, Azure Cognitive Search, Azure Blob Storage, Azure SQL, Azure Speech, GPT-3.5, GPT-4, Llama 2
 
 - Spearheaded Retrieval-Augmented Generation (RAG) initiatives with state-of-the-art LLMs for document retrieval
-- Cut a legacy pipeline runtime from **7 minutes to 2 seconds (≈210× faster)** through vectorized refactoring
+- Cut a legacy pipeline runtime from 7 minutes to 2 seconds (≈210× faster) through vectorized refactoring
 - Deployed production cloud solutions across serverless functions, web apps, cognitive search, blob storage and SQL
 - Implemented a high-impact recommendation system serving ∼1M users
 
@@ -63,11 +63,12 @@ _[Machine Learning & Deep Learning Intern (Internship)](https://drive.google.com
 
 - Built a Twitter sentiment analysis pipeline applying natural language processing techniques
 
-## 🎓 EDUCATION
+
+## EDUCATION
 
 **Bachelor of Technology, CSE** _from_ Shaheed Bhagat Singh State Technical Campus (SBSSTC) — 2016 - 2020<br>
 
-## 🛠️ SKILLS & INTERESTS
+## SKILLS
 
 - **AI & Machine Learning:** AI, ML, DL, GenAI, Data Science, Data Analysis, Statistical Analysis, EDA, Anomaly Detection, Recommender Systems, Dataset Curation, Data Labeling & Annotation
 - **Computer Vision:** Computer Vision, Object Detection, Object Tracking, Multi-Object Tracking, Action Recognition, Human Activity Recognition, Video Classification, Image Classification, Video Analytics, Behavior Analysis, Image Encryption
@@ -85,7 +86,7 @@ _[Machine Learning & Deep Learning Intern (Internship)](https://drive.google.com
 - **Exposure:** C#, Java, HTML, CSS, JavaScript (ECMAScript), Mojo, Rust, Zig
 - **Languages:** English (C2), Hindi (Native), Portuguese (A2)
 
-## 📂 PROJECTS
+## PROJECTS
 
 - **[Real-Time Sign Language Detection](https://github.com/ashuguptahere/sign-language-detection)**: 99.348% validation accuracy on ResNet102. Dataset: [ASL Alphabet](https://www.kaggle.com/grassknoted/asl-alphabet)
 - **[Human Activity Recognition](https://github.com/ashuguptahere/video-classification-ucf101)**: 90-95% validation accuracy on ResNet102. Published datasets: [UCF11](https://www.kaggle.com/ashuguptahere/video-classification-ucf11), [UCF101](https://www.kaggle.com/ashuguptahere/video-classification-ucf101)
@@ -93,23 +94,23 @@ _[Machine Learning & Deep Learning Intern (Internship)](https://drive.google.com
 - **Self-Hosted VPN on Raspberry Pi**: Private VPN on a Raspberry Pi with Tailscale for secure remote access from anywhere
 - **[AI Cover Letter Generator](https://github.com/ashuguptahere/cover-letter-gen)**: Gradio web interface generating cover letters in real time with Llama 3.2 on Ollama
 
-## 🏆 ACHIEVEMENTS
+## ACHIEVEMENTS
 
 - **[GATE 2021](https://drive.google.com/file/d/1ARz_BLLcELOdsD-tSp_IxuJ8UMXhP7_6/view?usp=share_link)**: cleared with Marks: 25.21 & GATE Score: 339
 - **[220+ DSA questions](https://codolio.com/profile/ashuguptahere)**: solved across competitive programming platforms
 
-## 🤝 LEADERSHIP
+## LEADERSHIP
 
 - Mentored junior AI Engineers and Data Scientists, enforcing production ML standards and code quality
 - Drove AI team growth through technical hiring, interview panels and onboarding of new engineers
 
-## 🎨 ACTIVITIES
+## ACTIVITIES
 
 - E-Cell & NSS Member at SBSSTC, Ferozepur, Punjab
 - System Incharge/Technician for the WebCam Feeds, Election Commission of India
 - Examiner at Mayank Foundation for Painting Competition
 
-## 📜 CERTIFICATIONS
+## CERTIFICATIONS
 
 - **[Coding Blocks - Algo++](https://drive.google.com/file/d/1hiyOK3MlFXi0583gJTVbafHLXmegdTvS/view?usp=sharing)**
 - **[Coursera - Deep Learning Specialization](https://www.coursera.org/account/accomplishments/specialization/certificate/UCE9XTXVFWEW)**
@@ -118,7 +119,7 @@ _[Machine Learning & Deep Learning Intern (Internship)](https://drive.google.com
 - **[Microsoft - Fundamentals of Machine Learning](https://drive.google.com/file/d/1SSPmCUa9mdKV8BjQj_RvWyFiPn-vGKpz/view?usp=sharing)**
 - **[ISOEH - Machine Learning](https://drive.google.com/file/d/1Pk-nYnK60L8UbcFB3BfSbxoZ3xy0Froh/view)**
 
-## 📈 STATS
+## STATS
 
 <a href="https://github.com/ashuguptahere/ashuguptahere.github.io"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ashuguptahere/ashuguptahere.github.io/output/github-contribution-grid-snake-dark.svg"><img alt="Contribution snake" src="https://raw.githubusercontent.com/ashuguptahere/ashuguptahere.github.io/output/github-contribution-grid-snake.svg"></picture></a>
 
@@ -130,7 +131,7 @@ _[Machine Learning & Deep Learning Intern (Internship)](https://drive.google.com
 
 <a href="https://leetcode.com/u/ashuguptahere/"><picture><source media="(prefers-color-scheme: dark)" srcset="https://leetcard.jacoblin.cool/ashuguptahere?ext=heatmap&theme=dark"><img alt="LeetCode Stats" src="https://leetcard.jacoblin.cool/ashuguptahere?ext=heatmap&theme=light"></picture></a>
 
-## ✍️ RANDOM DEV QUOTE
+## QUOTE
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark"><img alt="Random dev quote" src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=light"></picture>
 
