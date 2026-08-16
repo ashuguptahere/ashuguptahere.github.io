@@ -7,9 +7,20 @@
 
 #let data = yaml("data.yaml")
 
-// Prose fields hold Typst markup (*bold*, _italic_, #link(..)[..]) and are
-// evaluated. Every other field is inserted verbatim, so C# and & stay literal.
-#let md(s) = eval(s, mode: "markup")
+// data.yaml holds pure data: no markup, nothing evaluated. Every string is
+// inserted verbatim, so characters like # (C#) and & are always literal.
+//
+// Emphasis is applied here instead: any phrase listed under `emphasize` in
+// data.yaml is shown in bold wherever it appears in a bullet.
+#let stress(s) = {
+  let parts = (s,)
+  for phrase in data.at("emphasize", default: ()) {
+    parts = parts.map(p => if type(p) == str and phrase in p {
+      p.split(phrase).intersperse(strong(phrase))
+    } else { (p,) }).flatten()
+  }
+  parts.join()
+}
 
 #let basics = data.basics
 
@@ -70,9 +81,8 @@
   ..items,
 )
 
-// Takes markup strings from data.yaml and evaluates them. Only use this on
-// prose fields: eval would treat the # in "C#" as the start of code.
-#let bullets(items) = bullet_list(items.map(md))
+// Plain sentences from data.yaml, with `emphasize` phrases bolded.
+#let bullets(items) = bullet_list(items.map(stress))
 
 // Only hyphenated terms need protecting: a break inside "RF-DETR" extracts as
 // "RFDETR" and the ATS never matches it. Multi-word terms may wrap freely —
@@ -120,7 +130,7 @@
 
 // ------------------------------------------------------------------ sections
 
-#section("Summary")[#data.summary.text]
+#section("Summary")[#data.summary]
 
 #section("Experience")[
   #for job in data.experience {
@@ -131,7 +141,11 @@
   }
 ]
 
-#section("Education")[#md(data.education.line)]
+#section("Education")[
+  #for e in data.education {
+    block(spacing: 0.4em)[#e.degree #emph(" from ") #e.institution #h(1fr) #e.dates]
+  }
+]
 
 #section("Skills & Interests")[
   // One bullet per category; plain text, not a table. Table cells get split
@@ -140,21 +154,27 @@
   #bullet_list(data.skills.map(s => [#strong(s.category + ":") #s.items.map(nobreak).join(", ")]))
 ]
 
-#section("Projects")[
-  #bullet_list(data.projects.map(p => {
-    // Not every project has a public repo.
-    let head = if "url" in p { link(p.url)[#p.name] } else { strong(p.name) }
-    [#head#md(p.at("tail", default: ""))]
-  }))
-]
+// Shared shape: name / url (optional) / detail (optional), plus an optional
+// list of further links. Used by projects, achievements and certifications.
+#let entry_line(e) = {
+  let head = if "url" in e { link(e.url)[#e.name] } else { strong(e.name) }
+  let out = if "detail" in e [#head: #e.detail] else [#head]
+  if "links" in e {
+    let ls = e.links.map(l => link(l.url)[#l.name]).join(", ")
+    out = [#out. #e.at("links_label", default: "Links"): #ls]
+  }
+  out
+}
 
-#section("Achievements")[#bullets(data.achievements.items)]
+#section("Projects")[#bullet_list(data.projects.map(entry_line))]
 
-#section("Leadership")[#bullets(data.leadership.items)]
+#section("Achievements")[#bullet_list(data.achievements.map(entry_line))]
 
-#section("Activities")[#bullets(data.activities.items)]
+#section("Leadership")[#bullets(data.leadership)]
+
+#section("Activities")[#bullets(data.activities)]
 
 // Single column: multi-column reading order is fragile under text extraction.
 #section("Certifications")[
-  #bullet_list(data.certifications.items.map(c => link(c.url)[#c.name]))
+  #bullet_list(data.certifications.map(entry_line))
 ]

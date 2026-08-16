@@ -17,7 +17,7 @@ _Data Scientist & AI Engineer_ · _(Dec 2023 - Jul 2026)_
 
 **Stack:** Python, C/C++, DeepStream, TensorRT, CUDA, NVIDIA Jetson Orin AGX, Ultralytics, DETR, RT-DETR, RF-DETR, Ansible, GitHub Actions, Docker, Prometheus, Grafana, vLLM, Ollama, LangChain, Qdrant
 
-- Owned end-to-end computer vision for Human Activity Recognition and anomaly detection in retail loss prevention
+- Owned end-to-end computer vision for Human Activity Recognition, behavior analysis and anomaly detection in retail loss prevention
 - Cut inference latency **40%** on NVIDIA Jetson AGX by optimizing and quantizing models for edge deployment
 - Delivered a further **10-20x (1000-2000%)** throughput gain by porting Python inference to C++ DeepStream pipelines
 - Led fully localized, on-premise LLM deployments (Llama-3 70B, Qwen-2.5/3/3.5) for scene summarization
@@ -65,7 +65,7 @@ _[Machine Learning & Deep Learning Intern (Internship)](https://drive.google.com
 
 ## 🎓 EDUCATION
 
-Bachelor of Technology, CSE _from_ Shaheed Bhagat Singh State Technical Campus (SBSSTC) — 2016 - 2020
+**Bachelor of Technology, CSE** _from_ Shaheed Bhagat Singh State Technical Campus (SBSSTC) — 2016 - 2020<br>
 
 ## 🛠️ SKILLS & INTERESTS
 
@@ -87,16 +87,16 @@ Bachelor of Technology, CSE _from_ Shaheed Bhagat Singh State Technical Campus (
 
 ## 📂 PROJECTS
 
-- **[Real-Time Sign Language Detection](https://github.com/ashuguptahere/sign-language-detection)** : 99.348% validation accuracy on ResNet102. Dataset: [ASL Alphabet](https://www.kaggle.com/grassknoted/asl-alphabet)
-- **[Human Activity Recognition](https://github.com/ashuguptahere/video-classification-ucf101)** : 90-95% validation accuracy on ResNet102. Published datasets: [UCF11](https://www.kaggle.com/ashuguptahere/video-classification-ucf11), [UCF101](https://www.kaggle.com/ashuguptahere/video-classification-ucf101)
-- **[POLAR to YOLO11 Conversion & Train](https://github.com/ashuguptahere/POLAR-yolo-conversion-and-train)** : Dataset conversion and training pipelines for posture-level action recognition.
-- **Self-Hosted VPN on Raspberry Pi** : Private VPN on a Raspberry Pi with Tailscale for secure remote access from anywhere.
-- **[AI Cover Letter Generator](https://github.com/ashuguptahere/cover-letter-gen)** : Gradio web interface generating cover letters in real time with Llama 3.2 on Ollama.
+- **[Real-Time Sign Language Detection](https://github.com/ashuguptahere/sign-language-detection)**: 99.348% validation accuracy on ResNet102. Dataset: [ASL Alphabet](https://www.kaggle.com/grassknoted/asl-alphabet)
+- **[Human Activity Recognition](https://github.com/ashuguptahere/video-classification-ucf101)**: 90-95% validation accuracy on ResNet102. Published datasets: [UCF11](https://www.kaggle.com/ashuguptahere/video-classification-ucf11), [UCF101](https://www.kaggle.com/ashuguptahere/video-classification-ucf101)
+- **[POLAR to YOLO11 Conversion & Train](https://github.com/ashuguptahere/POLAR-yolo-conversion-and-train)**: Dataset conversion and training pipelines for posture-level action recognition
+- **Self-Hosted VPN on Raspberry Pi**: Private VPN on a Raspberry Pi with Tailscale for secure remote access from anywhere
+- **[AI Cover Letter Generator](https://github.com/ashuguptahere/cover-letter-gen)**: Gradio web interface generating cover letters in real time with Llama 3.2 on Ollama
 
 ## 🏆 ACHIEVEMENTS
 
-- [GATE 2021](https://drive.google.com/file/d/1ARz_BLLcELOdsD-tSp_IxuJ8UMXhP7_6/view?usp=share_link) cleared with Marks: 25.21 & GATE Score: 339
-- Solved [220+ DSA questions](https://codolio.com/profile/ashuguptahere) across competitive programming platforms
+- **[GATE 2021](https://drive.google.com/file/d/1ARz_BLLcELOdsD-tSp_IxuJ8UMXhP7_6/view?usp=share_link)**: cleared with Marks: 25.21 & GATE Score: 339
+- **[220+ DSA questions](https://codolio.com/profile/ashuguptahere)**: solved across competitive programming platforms
 
 ## 🤝 LEADERSHIP
 
@@ -111,12 +111,12 @@ Bachelor of Technology, CSE _from_ Shaheed Bhagat Singh State Technical Campus (
 
 ## 📜 CERTIFICATIONS
 
-- [Coding Blocks - Algo++](https://drive.google.com/file/d/1hiyOK3MlFXi0583gJTVbafHLXmegdTvS/view?usp=sharing)
-- [Coursera - Deep Learning Specialization](https://www.coursera.org/account/accomplishments/specialization/certificate/UCE9XTXVFWEW)
-- [CETPA - Machine Learning](https://drive.google.com/file/d/1mK1c-I2CtkLyqJjuNWmpbe8s171mp99e/view?usp=sharing)
-- [CETPA - Deep Learning](https://drive.google.com/file/d/1T7H8U4ZWa9Rv8AQLp2j44RJvE-3HzsC-/view?usp=sharing)
-- [Microsoft - Fundamentals of Machine Learning](https://drive.google.com/file/d/1SSPmCUa9mdKV8BjQj_RvWyFiPn-vGKpz/view?usp=sharing)
-- [ISOEH - Machine Learning](https://drive.google.com/file/d/1Pk-nYnK60L8UbcFB3BfSbxoZ3xy0Froh/view)
+- **[Coding Blocks - Algo++](https://drive.google.com/file/d/1hiyOK3MlFXi0583gJTVbafHLXmegdTvS/view?usp=sharing)**
+- **[Coursera - Deep Learning Specialization](https://www.coursera.org/account/accomplishments/specialization/certificate/UCE9XTXVFWEW)**
+- **[CETPA - Machine Learning](https://drive.google.com/file/d/1mK1c-I2CtkLyqJjuNWmpbe8s171mp99e/view?usp=sharing)**
+- **[CETPA - Deep Learning](https://drive.google.com/file/d/1T7H8U4ZWa9Rv8AQLp2j44RJvE-3HzsC-/view?usp=sharing)**
+- **[Microsoft - Fundamentals of Machine Learning](https://drive.google.com/file/d/1SSPmCUa9mdKV8BjQj_RvWyFiPn-vGKpz/view?usp=sharing)**
+- **[ISOEH - Machine Learning](https://drive.google.com/file/d/1Pk-nYnK60L8UbcFB3BfSbxoZ3xy0Froh/view)**
 
 ## 📈 STATS
 

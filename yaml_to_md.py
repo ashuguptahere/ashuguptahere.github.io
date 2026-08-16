@@ -36,15 +36,8 @@ from urllib.parse import quote, urlparse
 
 import yaml
 
-# --- Typst markup -> Markdown (data.yaml prose is Typst; see resume.typ) ---
-
-# #link("url")[text] -> [text](url)
-RE_LINK = re.compile(r"""#link\(\s*"([^"]+)"\s*\)\[([^\]]*)\]""")
-# Typst *bold* -> Markdown **bold**. Typst has no single-* italic, so every
-# *...* is bold.
-RE_BOLD = re.compile(r"""\*([^*\n]+)\*""")
-# #h(1fr) is "push to the right margin"; Markdown has no equivalent.
-RE_HFILL = re.compile(r"""#h\(\s*1fr\s*\)""")
+# data.yaml is pure data: no markup to translate. Emphasis comes from its
+# `emphasize` list, applied here so the PDF and this README agree.
 
 # Keywords shorter than this are too collision-prone to lint (AI, ML, DL, uv).
 MIN_LINT_LEN = 5
@@ -164,24 +157,24 @@ def build_quote() -> str:
     )
 
 
-def typst_to_md(s: str) -> str:
-    """
-    Translate the Typst markup stored in data.yaml into Markdown, so both the
-    PDF and this README render from one source.
-    """
-    if s is None:
-        return ""
-    s = str(s)
-
-    # Links first: their [text] must not be mistaken for anything else.
-    s = RE_LINK.sub(lambda m: f"[{m.group(2)}]({m.group(1)})", s)
-    s = RE_BOLD.sub(lambda m: f"**{m.group(1)}**", s)
-    s = RE_HFILL.sub(" — ", s)
-
-    # Normalize whitespace
-    s = re.sub(r"[ \t]+", " ", s).strip()
-
+def stress(s: str, phrases: list[str]) -> str:
+    """Bold each `emphasize` phrase wherever it occurs."""
+    for ph in phrases or []:
+        if ph in s:
+            s = s.replace(ph, f"**{ph}**")
     return s
+
+
+def entry_line(e: dict) -> str:
+    """Render the shared name / url / detail / links shape."""
+    head = md_link(e["name"], e["url"]) if e.get("url") else e["name"]
+    line = f"**{head}**"
+    if e.get("detail"):
+        line += f": {e['detail']}"
+    if e.get("links"):
+        ls = ", ".join(md_link(l["name"], l["url"]) for l in e["links"])
+        line += f". {e.get('links_label', 'Links')}: {ls}"
+    return line
 
 
 def md_link(text: str, url: str) -> str:
@@ -218,10 +211,8 @@ def lint_repetition(data: dict) -> list[str]:
     bullets: list[str] = []
     for job in data.get("experience", []) or []:
         bullets.extend(str(b) for b in (job.get("bullets", []) or []))
-    for key in ("leadership", "activities", "achievements"):
-        bullets.extend(
-            str(b) for b in ((data.get(key, {}) or {}).get("items", []) or [])
-        )
+    for key in ("leadership", "activities"):
+        bullets.extend(str(b) for b in (data.get(key, []) or []))
 
     stack_terms = {
         str(s).strip()
@@ -252,6 +243,7 @@ def main() -> int:
 
     data = yaml.safe_load(in_path.read_text(encoding="utf-8"))
     basics = data.get("basics", {}) or {}
+    emphasize = data.get("emphasize", []) or []
 
     # Header (keeps same variables as resume)
     name = str(basics.get("name", "")).strip() or "Resume"
@@ -300,7 +292,7 @@ def main() -> int:
         md.append("")
 
     # 1) summary
-    summary = str((data.get("summary", {}) or {}).get("text", "") or "").strip()
+    summary = str(data.get("summary", "") or "").strip()
     if summary:
         section(md, "🎯 SUMMARY")
         md.append(summary)
@@ -329,14 +321,15 @@ def main() -> int:
         md.append("")
 
         for b in job.get("bullets", []) or []:
-            md.append(f"- {typst_to_md(b)}")
+            md.append(f"- {stress(b, emphasize)}")
         md.append("")
 
     # 3) education
     section(md, "🎓 EDUCATION")
-    ed_line = ((data.get("education", {}) or {}).get("line", "") or "").strip()
-    if ed_line:
-        md.append(typst_to_md(ed_line))
+    for e in data.get("education", []) or []:
+        md.append(
+            f"**{e['degree']}** _from_ {e['institution']} — {e['dates']}<br>"
+        )
     md.append("")
 
     # 4) skills
@@ -350,41 +343,32 @@ def main() -> int:
             md.append(f"- **{cat}:**")
     md.append("")
 
-    # 5) projects
+    # 5) projects  |  6) achievements  - same name/url/detail/links shape
     section(md, "📂 PROJECTS")
     for p in data.get("projects", []) or []:
-        pname = str(p.get("name", "")).strip()
-        url = str(p.get("url", "")).strip()
-        tail = str(p.get("tail", "") or "").strip()
-
-        head = f"**{md_link(pname, url)}**" if (pname or url) else "**Project**"
-        line = head + ((" " + typst_to_md(tail)) if tail else "")
-        md.append(f"- {line}")
+        md.append(f"- {entry_line(p)}")
     md.append("")
 
-    # 6) achievements
     section(md, "🏆 ACHIEVEMENTS")
-    for a in (data.get("achievements", {}) or {}).get("items", []) or []:
-        md.append(f"- {typst_to_md(a)}")
+    for a in data.get("achievements", []) or []:
+        md.append(f"- {entry_line(a)}")
     md.append("")
 
-    # 7) leadership
+    # 7) leadership  |  activities - plain statements
     section(md, "🤝 LEADERSHIP")
-    for x in (data.get("leadership", {}) or {}).get("items", []) or []:
-        md.append(f"- {typst_to_md(x)}")
+    for x in data.get("leadership", []) or []:
+        md.append(f"- {x}")
     md.append("")
 
     section(md, "🎨 ACTIVITIES")
-    for x in (data.get("activities", {}) or {}).get("items", []) or []:
-        md.append(f"- {typst_to_md(x)}")
+    for x in data.get("activities", []) or []:
+        md.append(f"- {x}")
     md.append("")
 
     # 8) certifications
     section(md, "📜 CERTIFICATIONS")
-    for c in (data.get("certifications", {}) or {}).get("items", []) or []:
-        cname = str(c.get("name", "")).strip()
-        curl = str(c.get("url", "")).strip()
-        md.append(f"- {md_link(cname, curl)}")
+    for c in data.get("certifications", []) or []:
+        md.append(f"- {entry_line(c)}")
     md.append("")
 
     stats = build_stats_cards(links, str(basics.get("repo", "") or "").strip())
