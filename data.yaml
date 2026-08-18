@@ -78,13 +78,17 @@ experience:
       - 'Qdrant'
     bullets:
       - 'Owned end-to-end computer vision for Human Activity Recognition, behavior analysis and anomaly detection in retail loss prevention'
+      - 'Built FaceGuard, a real-time face anonymization system, and a matching body anonymization pipeline, keeping retail video analytics GDPR-compliant'
+      - 'Shipped weapon, violence and shoplifting detection models, extending loss prevention beyond activity recognition'
+      - 'Engineered multi-camera, multi-view person tracking with real-time cross-camera re-identification across the store fleet'
       - 'Cut inference latency 40% on NVIDIA Jetson AGX by optimizing and quantizing models for edge deployment'
       - 'Delivered a further 10-20x (1000-2000%) throughput gain by porting Python inference to C++ DeepStream pipelines'
+      - 'Automated fleet deployment and CI/CD across 15 edge devices serving 120 cameras in ∼10 stores, scalable to 1000+'
+      - 'Curated an in-house dataset with semi-automated labeling and built stream-processing backends'
+      - 'Turned client requirements into proofs of concept and MVPs, taking the successful ones through to deployed pilots'
       - 'Led fully localized, on-premise LLM deployments (Llama-3 70B, Qwen-2.5/3/3.5) for scene summarization'
       - 'Applied RAG and LoRA/QLoRA fine-tuning to ship a law-firm document intelligence product'
       - 'Built a conversational chat interface with semantic search over vast PDF and text repositories'
-      - 'Automated fleet deployment and CI/CD across 15 edge devices serving 120 cameras in ∼10 stores, scalable to 1000+'
-      - 'Curated an in-house dataset with semi-automated labeling and built stream-processing backends'
 
   - company: 'MAQ Software'
     location: 'Noida, India'
@@ -152,6 +156,10 @@ experience:
     bullets:
       - 'Built a Twitter sentiment analysis pipeline applying natural language processing techniques'
 
+patents:
+  - name: 'FaceGuard - real-time face anonymization for video analytics'
+    detail: 'contributed to the patent filing, under review in Portugal'
+
 education:
   - institution: 'Shaheed Bhagat Singh State Technical Campus (SBSSTC)'
     degree: 'Bachelor of Technology, CSE'
@@ -172,6 +180,8 @@ skills:
       - 'Recommender Systems'
       - 'Dataset Curation'
       - 'Data Labeling & Annotation'
+      - 'Proof of Concept (PoC)'
+      - 'MVP Development'
 
   - category: 'Computer Vision'
     items:
@@ -185,6 +195,14 @@ skills:
       - 'Image Classification'
       - 'Video Analytics'
       - 'Behavior Analysis'
+      - 'Weapon Detection'
+      - 'Violence Detection'
+      - 'Shoplifting Detection'
+      - 'Person Re-Identification'
+      - 'Cross-Camera Tracking'
+      - 'Multi-Camera Systems'
+      - 'Face Anonymization'
+      - 'Body Anonymization'
       - 'Image Encryption'
 
   - category: 'GenAI & LLM'
@@ -329,6 +347,8 @@ skills:
     items:
       - 'GDPR'
       - 'Data Privacy'
+      - 'Data Anonymization'
+      - 'Privacy-Preserving AI'
 
   - category: 'Leadership'
     items:

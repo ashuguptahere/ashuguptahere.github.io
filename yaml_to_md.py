@@ -193,7 +193,7 @@ def render(key: str, value) -> list[str]:
         ]
     if key == "skills":
         return [f"- **{s['category']}:** {', '.join(s['items'])}" for s in value]
-    if key in ("projects", "achievements", "certifications"):
+    if key in ("patents", "projects", "achievements", "certifications"):
         return [f"- {entry_line(e)}" for e in value]
     # leadership, activities, and any future list of plain statements.
     return [f"- {x}" for x in value]

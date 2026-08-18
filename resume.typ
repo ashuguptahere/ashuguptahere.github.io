@@ -115,7 +115,7 @@
     bullet_list(value.map(s => [
       #strong(s.category + ":") #s.items.map(nobreak).join(", ")
     ]))
-  } else if key in ("projects", "achievements", "certifications") {
+  } else if key in ("patents", "projects", "achievements", "certifications") {
     // Single column throughout: multi-column reading order is fragile under
     // PDF text extraction.
     bullet_list(value.map(entry_line))

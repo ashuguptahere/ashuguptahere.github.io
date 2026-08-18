@@ -18,13 +18,17 @@ _Data Scientist & AI Engineer_ · _(Dec 2023 - Jul 2026)_
 **Stack:** Python, C/C++, DeepStream, TensorRT, CUDA, NVIDIA Jetson Orin AGX, Ultralytics, DETR, RT-DETR, RF-DETR, Ansible, GitHub Actions, Docker, Prometheus, Grafana, vLLM, Ollama, LangChain, Qdrant
 
 - Owned end-to-end computer vision for Human Activity Recognition, behavior analysis and anomaly detection in retail loss prevention
+- Built FaceGuard, a real-time face anonymization system, and a matching body anonymization pipeline, keeping retail video analytics GDPR-compliant
+- Shipped weapon, violence and shoplifting detection models, extending loss prevention beyond activity recognition
+- Engineered multi-camera, multi-view person tracking with real-time cross-camera re-identification across the store fleet
 - Cut inference latency 40% on NVIDIA Jetson AGX by optimizing and quantizing models for edge deployment
 - Delivered a further 10-20x (1000-2000%) throughput gain by porting Python inference to C++ DeepStream pipelines
+- Automated fleet deployment and CI/CD across 15 edge devices serving 120 cameras in ∼10 stores, scalable to 1000+
+- Curated an in-house dataset with semi-automated labeling and built stream-processing backends
+- Turned client requirements into proofs of concept and MVPs, taking the successful ones through to deployed pilots
 - Led fully localized, on-premise LLM deployments (Llama-3 70B, Qwen-2.5/3/3.5) for scene summarization
 - Applied RAG and LoRA/QLoRA fine-tuning to ship a law-firm document intelligence product
 - Built a conversational chat interface with semantic search over vast PDF and text repositories
-- Automated fleet deployment and CI/CD across 15 edge devices serving 120 cameras in ∼10 stores, scalable to 1000+
-- Curated an in-house dataset with semi-automated labeling and built stream-processing backends
 
 **MAQ Software** · _Noida, India_<br>
 _Software Engineer 1_ · _(Dec 2022 - Dec 2023)_
@@ -64,14 +68,18 @@ _[Machine Learning & Deep Learning Intern (Internship)](https://drive.google.com
 - Built a Twitter sentiment analysis pipeline applying natural language processing techniques
 
 
+## PATENTS
+
+- **FaceGuard - real-time face anonymization for video analytics**: contributed to the patent filing, under review in Portugal
+
 ## EDUCATION
 
 **Bachelor of Technology, CSE** _from_ Shaheed Bhagat Singh State Technical Campus (SBSSTC) — 2016 - 2020<br>
 
 ## SKILLS
 
-- **AI & Machine Learning:** AI, ML, DL, GenAI, Data Science, Data Analysis, Statistical Analysis, EDA, Anomaly Detection, Recommender Systems, Dataset Curation, Data Labeling & Annotation
-- **Computer Vision:** Computer Vision, Object Detection, Object Tracking, Multi-Object Tracking, Action Recognition, Human Activity Recognition, Video Classification, Image Classification, Video Analytics, Behavior Analysis, Image Encryption
+- **AI & Machine Learning:** AI, ML, DL, GenAI, Data Science, Data Analysis, Statistical Analysis, EDA, Anomaly Detection, Recommender Systems, Dataset Curation, Data Labeling & Annotation, Proof of Concept (PoC), MVP Development
+- **Computer Vision:** Computer Vision, Object Detection, Object Tracking, Multi-Object Tracking, Action Recognition, Human Activity Recognition, Video Classification, Image Classification, Video Analytics, Behavior Analysis, Weapon Detection, Violence Detection, Shoplifting Detection, Person Re-Identification, Cross-Camera Tracking, Multi-Camera Systems, Face Anonymization, Body Anonymization, Image Encryption
 - **GenAI & LLM:** LLM, NLP, RAG, Prompt Engineering, LoRA/QLoRA Fine-Tuning, PEFT, Agentic AI, Multimodal, Semantic Search, Embeddings, Vector Databases, Document Intelligence, Conversational AI, Sentiment Analysis
 - **Edge & Optimization:** Edge AI, Edge Computing, Embedded Systems, Real-Time Inference, Low-Latency Systems, Inference Optimization, Model Quantization (INT8/FP16), CUDA, TensorRT, DeepStream, GStreamer, MQTT
 - **MLOps & DevOps:** MLOps, AIOps, CI/CD, GitHub Actions, Ansible, Infrastructure as Code, Docker, Model Deployment, Model Monitoring, Model Versioning, Prometheus, Grafana, Tailscale, Linux
@@ -81,7 +89,7 @@ _[Machine Learning & Deep Learning Intern (Internship)](https://drive.google.com
 - **Hardware:** NVIDIA Jetson Orin AGX, NVIDIA Jetson THOR, Raspberry Pi
 - **Models:** GPT-3.5, GPT-4, Llama 2, Llama 3 (70B), Llama 3.2, Qwen-2.5/3/3.5, YOLO11, DETR, RT-DETR, RF-DETR, ResNet
 - **Libraries:** PyTorch, TensorFlow, Keras, OpenCV, Ultralytics, scikit-learn, NumPy, Pandas, Matplotlib, Seaborn, Plotly, NLTK, Hugging Face Transformers, OpenAI, Ollama, vLLM, ONNX, ONNX Runtime, Triton Inference Server, LangChain, LangGraph, LlamaIndex, FAISS, Qdrant, Chroma, pgvector, Streamlit, Gradio, Flask, FastAPI, pytest, uv, ruff
-- **Compliance:** GDPR, Data Privacy
+- **Compliance:** GDPR, Data Privacy, Data Anonymization, Privacy-Preserving AI
 - **Leadership:** Technical Leadership, Mentoring, Code Review, Technical Hiring, Cross-functional Collaboration, Communication, Teamwork, Problem Solving, Time Management
 - **Exposure:** C#, Java, HTML, CSS, JavaScript (ECMAScript), Mojo, Rust, Zig
 - **Languages:** English (C2), Hindi (Native), Portuguese (A2)
