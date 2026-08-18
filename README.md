@@ -68,10 +68,6 @@ _[Machine Learning & Deep Learning Intern (Internship)](https://drive.google.com
 - Built a Twitter sentiment analysis pipeline applying natural language processing techniques
 
 
-## PATENTS
-
-- **FaceGuard - real-time face anonymization for video analytics**: contributed to the patent filing, under review in Portugal
-
 ## EDUCATION
 
 **Bachelor of Technology, CSE** _from_ Shaheed Bhagat Singh State Technical Campus (SBSSTC) — 2016 - 2020<br>
@@ -101,6 +97,10 @@ _[Machine Learning & Deep Learning Intern (Internship)](https://drive.google.com
 - **[POLAR to YOLO11 Conversion & Train](https://github.com/ashuguptahere/POLAR-yolo-conversion-and-train)**: Dataset conversion and training pipelines for posture-level action recognition
 - **Self-Hosted VPN on Raspberry Pi**: Private VPN on a Raspberry Pi with Tailscale for secure remote access from anywhere
 - **[AI Cover Letter Generator](https://github.com/ashuguptahere/cover-letter-gen)**: Gradio web interface generating cover letters in real time with Llama 3.2 on Ollama
+
+## PATENTS
+
+- **FaceGuard - real-time face anonymization for video analytics**: contributed to the patent filing, under review in Portugal
 
 ## ACHIEVEMENTS
 

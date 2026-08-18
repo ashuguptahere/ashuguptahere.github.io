@@ -156,9 +156,6 @@ experience:
     bullets:
       - 'Built a Twitter sentiment analysis pipeline applying natural language processing techniques'
 
-patents:
-  - name: 'FaceGuard - real-time face anonymization for video analytics'
-    detail: 'contributed to the patent filing, under review in Portugal'
 
 education:
   - institution: 'Shaheed Bhagat Singh State Technical Campus (SBSSTC)'
@@ -408,6 +405,10 @@ projects:
   - name: 'AI Cover Letter Generator'
     url: 'https://github.com/ashuguptahere/cover-letter-gen'
     detail: 'Gradio web interface generating cover letters in real time with Llama 3.2 on Ollama'
+
+patents:
+  - name: 'FaceGuard - real-time face anonymization for video analytics'
+    detail: 'contributed to the patent filing, under review in Portugal'
 
 achievements:
   - name: 'GATE 2021'

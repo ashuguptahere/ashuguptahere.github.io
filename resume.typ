@@ -51,10 +51,12 @@
 // ---------------------------------------------------------------- components
 
 #let section(title, body) = {
-  // Keeping the heading unbreakable stops it stranding at the foot of a page.
+  // sticky: true glues the heading to the body that follows, so a heading can
+  // never sit alone at the foot of a page with its content overleaf.
+  // breakable: false keeps the title and its rule together.
   // `above` is the gap from the previous section, which reads as crowded when
   // the sections nearly touch.
-  block(breakable: false, above: 13pt, below: 4pt)[
+  block(breakable: false, sticky: true, above: 13pt, below: 4pt)[
     #text(weight: "bold", upper(title))
     #v(3pt, weak: true)
     #line(length: 100%, stroke: 0.4pt)
