@@ -26,9 +26,18 @@
   date: none,
 )
 
+// One margin for the whole page perimeter. The bottom is larger only because
+// the footer band lives inside it: MARGIN + FOOTER_GAP + the footer's own line
+// height, so the white paper *below the footer* still equals MARGIN and the
+// border looks even on all four sides.
+#let MARGIN = 0.3in
+#let FOOTER_GAP = 10pt
+
 #set page(
   paper: "a4",
-  margin: (x: 0.3in, top: 0.3in, bottom: 0.42in),
+  margin: (x: MARGIN, top: MARGIN, bottom: MARGIN + FOOTER_GAP + 6pt),
+  // Distance from the body down to the footer.
+  footer-descent: FOOTER_GAP,
   // Name and page position on every page, so a page separated from the rest
   // is still identifiable.
   footer: context {
@@ -39,6 +48,17 @@
     "Page " + str(here().page()) + " of " + last
   },
 )
+
+// Every gap in the document is this, so headings, header lines and sections
+// are all spaced identically. Tuned so the measured gap between the previous
+// text line and the next one is ~9pt; block spacing is larger than the visible
+// gap because line bounding boxes include ascender and descender room.
+#let GAP = 12.1pt
+
+// The header is five short centred lines, so the full section gap between
+// them reads as too airy. It uses its own tighter value, applied to spacing
+// AND leading so a wrapped contact line matches a separate one.
+#let HEADER_GAP = 7.1pt
 
 #set text(font: "New Computer Modern", size: 10pt)
 #set par(justify: true, leading: 0.5em, spacing: 0.6em, first-line-indent: 0pt)
@@ -56,7 +76,7 @@
   // breakable: false keeps the title and its rule together.
   // `above` is the gap from the previous section, which reads as crowded when
   // the sections nearly touch.
-  block(breakable: false, sticky: true, above: 13pt, below: 4pt)[
+  block(breakable: false, sticky: true, above: GAP, below: 4pt)[
     #text(weight: "bold", upper(title))
     #v(3pt, weak: true)
     #line(length: 100%, stroke: 0.4pt)
@@ -102,10 +122,12 @@
   if key == "summary" {
     value
   } else if key == "experience" {
-    for job in value {
+    // Spacer between jobs only: firing it after the last one added 3pt to
+    // the gap before the next section heading.
+    for (i, job) in value.enumerate() {
       dated_entry(job)
       bullet_list(job.bullets)
-      v(0.3em)
+      if i + 1 < value.len() { v(0.3em) }
     }
   } else if key == "education" {
     for e in value {
@@ -132,10 +154,15 @@
 #align(center)[
   // Unjustified: the contact line is a row of unbreakable boxes, and
   // justifying it stretches the separators into ragged gaps.
-  #set par(justify: false)
+  // spacing AND leading are both GAP. The contact links wrap onto three
+  // lines, and with the document's tighter leading those wrapped lines
+  // clumped together while the lines above them sat GAP apart, which read as
+  // uneven. Matching the two puts every header line on one rhythm.
+  #set par(justify: false, spacing: HEADER_GAP, leading: HEADER_GAP)
   #text(size: 17pt, weight: "bold", basics.name)
 
-  #v(0.3em)
+  // The one deliberate exception: extra room under the name so it stands out.
+  #v(3pt)
 
   #strong(basics.titles)
 
@@ -157,8 +184,6 @@
     parts.join([ #sym.dot.c ])
   }
 ]
-
-#v(0.2em)
 
 // ------------------------------------------------------------------ sections
 
